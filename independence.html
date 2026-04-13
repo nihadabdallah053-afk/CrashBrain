@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>6 March 1957 — Independence Day — Ghana</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .midnight-hero {
+      min-height: 100vh; display: flex; align-items: center;
+      background: #000; position: relative; overflow: hidden;
+      padding-top: var(--nav-h);
+    }
+    .star-field { position: absolute; inset: 0; overflow: hidden; }
+    .star {
+      position: absolute; border-radius: 50%;
+      background: rgba(240,192,64,0.7);
+    }
+    @keyframes twinkle { 0%,100%{opacity:0.3;} 50%{opacity:1;} }
+    .midnight-content { position: relative; z-index: 1; text-align: center; width: 100%; }
+    .midnight-content .the-date {
+      font-family: var(--ff-head); font-size: clamp(14px,2vw,22px);
+      letter-spacing: 0.3em; color: var(--gold); margin-bottom: 2rem;
+    }
+    .midnight-content h1 { font-size: clamp(52px,9vw,110px); line-height: 1.0; margin-bottom: 1.5rem; }
+    .midnight-content h1 .small { font-size: 0.4em; display: block; color: rgba(245,238,220,0.5); font-weight: 400; font-style: italic; }
+    .midnight-content .declaration {
+      font-family: var(--ff-display); font-size: clamp(17px,2.5vw,26px);
+      font-style: italic; color: var(--gold2);
+      max-width: 680px; margin: 0 auto 3rem; line-height: 1.5;
+    }
+    .midnight-flags {
+      display: flex; justify-content: center; gap: 3px;
+      height: 10px; max-width: 180px; margin: 0 auto 3rem;
+      border-radius: 5px; overflow: hidden;
+    }
+    .midnight-flags span { flex: 1; }
+
+    .clock-section { background: var(--dark2); padding: 80px 0; text-align: center; border-top: 0.5px solid var(--border); }
+    .clock-display { font-family: var(--ff-head); font-size: clamp(52px,8vw,100px); color: var(--gold); letter-spacing: 0.05em; line-height: 1; margin: 2rem 0; }
+    .clock-label { font-size: 14px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    .accounts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .account-card { background: var(--dark3); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.75rem; }
+    .account-card .aq { font-family: var(--ff-display); font-size: 15px; font-style: italic; color: var(--cream); line-height: 1.65; margin-bottom: 1rem; }
+    .account-card .aname { font-size: 12px; font-weight: 600; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; }
+    .account-card .atitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    .speech-layout { display: grid; grid-template-columns: 360px 1fr; gap: 5rem; align-items: start; }
+    .speech-aside { position: sticky; top: calc(var(--nav-h) + 1rem); }
+    .speech-aside .s-img { border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; }
+    .speech-aside .s-img img { width:100%; height: 300px; object-fit:cover; object-position:top; }
+    .speech-text h2 { font-size: clamp(28px,4vw,48px); margin-bottom: 1.5rem; }
+    .speech-text p { color: var(--muted); line-height: 1.8; font-size: 15px; margin-bottom: 1.25rem; }
+    .speech-text .oration {
+      background: rgba(212,160,23,0.06); border-left: 4px solid var(--gold2);
+      border-radius: 0 8px 8px 0; padding: 1.5rem 2rem; margin: 2rem 0;
+      font-family: var(--ff-display); font-size: 18px; color: var(--cream); line-height: 1.6; font-style: italic;
+    }
+
+    .change-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+    .change-item { padding: 1.5rem; background: var(--dark3); border: 0.5px solid var(--border); border-radius: 12px; }
+    .change-item .ci-before { font-size: 11px; color: #e88090; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 6px; }
+    .change-item .ci-after  { font-size: 11px; color: #6cd490; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-top: 1rem; margin-bottom: 6px; }
+    .change-item h4 { font-size: 15px; color: var(--cream); }
+    .change-item p  { font-size: 13px; color: var(--muted); line-height: 1.55; margin-top: 4px; }
+    .change-item .arr { color: var(--gold); font-size: 20px; display: block; text-align: center; margin: 0.5rem 0; }
+
+    .ripple-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .ripple-item { background: var(--dark3); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.25rem; }
+    .ripple-item .ryear { font-family: var(--ff-head); font-size: 36px; color: var(--gold); line-height: 1; }
+    .ripple-item h4 { font-size: 14px; margin: 4px 0; }
+    .ripple-item p  { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    @media(max-width:900px){
+      .speech-layout { grid-template-columns: 1fr; }
+      .speech-aside { position: static; }
+    }
+    @media(max-width:768px){
+      .accounts-grid { grid-template-columns: 1fr; }
+      .change-grid   { grid-template-columns: 1fr; }
+      .ripple-grid   { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="flag-bar"><span></span><span></span><span></span></div>
+    <div class="logo-text">Ghana<span>Our History &amp; Journey</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="history.html">History</a>
+      <div class="dropdown-menu">
+        <a href="timeline.html">Timeline</a>
+        <a href="independence.html">Independence</a>
+        <a href="regions.html">Regions</a>
+      </div>
+    </li>
+    <li><a href="culture.html">Culture</a></li>
+    <li><a href="heroes.html">Heroes</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="journey.html" class="nav-cta">Our Journey</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <div class="mobile-dropdown">
+    <a href="history.html" class="mobile-dropdown-toggle">History</a>
+    <div class="mobile-dropdown-menu">
+      <a href="timeline.html">Timeline</a>
+      <a href="independence.html">Independence</a>
+      <a href="regions.html">Regions</a>
+    </div>
+  </div>
+  <a href="culture.html">Culture</a>
+  <a href="heroes.html">Heroes</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="journey.html">Our Journey</a>
+</div>
+
+<!-- MIDNIGHT HERO -->
+<section class="midnight-hero">
+  <div class="star-field" id="stars"></div>
+  <div class="container">
+    <div class="midnight-content">
+      <div class="the-date fade-in delay-1">6 March 1957 — 00:00 Hours — Accra, Ghana</div>
+      <h1 class="fade-up delay-2">
+        <span class="small">The Night Everything Changed</span>
+        Independence
+      </h1>
+      <p class="declaration fade-up delay-3">"Ghana, your beloved country, is free forever."</p>
+      <div class="midnight-flags fade-in delay-4">
+        <span style="background:var(--red);"></span>
+        <span style="background:var(--gold2);"></span>
+        <span style="background:var(--green);"></span>
+      </div>
+      <a href="#the-night" class="btn btn-gold fade-up delay-5">Read the Full Story ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- THE CLOCK -->
+<section class="clock-section" id="the-night">
+  <div class="container">
+    <span class="overline">The Countdown</span>
+    <h2 style="font-size:clamp(28px,4vw,48px); margin-bottom:0.5rem;">Midnight, 5–6 March 1957</h2>
+    <p style="color:var(--muted); max-width:560px; margin:0 auto 1rem; line-height:1.7;">At exactly midnight, two flags changed places in Accra's Old Polo Ground — and the world shifted on its axis.</p>
+    <div class="clock-display">00 : 00 : 00</div>
+    <div class="clock-label">The Moment the Union Jack was Lowered</div>
+    <div class="stat-strip" style="max-width:800px; margin:3rem auto 0;">
+      <div class="stat-item"><div class="val">100K</div><div class="lbl">People in the crowd</div></div>
+      <div class="stat-item"><div class="val">1st</div><div class="lbl">Sub-Saharan independence</div></div>
+      <div class="stat-item"><div class="val">67</div><div class="lbl">Years of independence</div></div>
+      <div class="stat-item"><div class="val">3</div><div class="lbl">Colours on the new flag</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE STORY -->
+<section class="section" id="story">
+  <div class="container">
+    <div class="speech-layout">
+      <div class="speech-aside" data-reveal>
+        <div class="s-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Kwame_Nkrumah_in_the_1960s.jpg/800px-Kwame_Nkrumah_in_the_1960s.jpg" alt="Kwame Nkrumah"/>
+        </div>
+        <div style="background:var(--dark3); border:0.5px solid var(--border); border-radius:12px; padding:1.25rem; margin-bottom:1rem;">
+          <h4 style="font-family:var(--ff-body);font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">Key People Present</h4>
+          <div style="display:flex;flex-direction:column;gap:0.7rem;">
+            <div style="font-size:13px;"><strong style="color:var(--cream);">Kwame Nkrumah</strong><br><span style="color:var(--muted);">Prime Minister, orator</span></div>
+            <div style="font-size:13px;"><strong style="color:var(--cream);">Princess Marina</strong><br><span style="color:var(--muted);">Representing HM The Queen</span></div>
+            <div style="font-size:13px;"><strong style="color:var(--cream);">Richard Nixon</strong><br><span style="color:var(--muted);">US Vice President</span></div>
+            <div style="font-size:13px;"><strong style="color:var(--cream);">Martin Luther King Jr.</strong><br><span style="color:var(--muted);">Civil rights leader, moved to tears</span></div>
+            <div style="font-size:13px;"><strong style="color:var(--cream);">Haile Selassie</strong><br><span style="color:var(--muted);">Emperor of Ethiopia</span></div>
+          </div>
+        </div>
+        <a href="heroes.html#nkrumah" class="btn btn-outline" style="width:100%; justify-content:center;">Full Nkrumah Profile →</a>
+      </div>
+      <div class="speech-text">
+        <span class="overline">The Story of the Night</span>
+        <h2>How Independence Came to Ghana</h2>
+        <p>The weeks before independence had an atmosphere of controlled electricity. Accra was decorated with bunting and flags. British officials were packing their offices. Nkrumah's Convention People's Party had been running the country since 1951 — but this was different. This was permanent.</p>
+        <p>The negotiations with Britain had been conducted over years of delicate diplomacy. Governor Sir Charles Arden-Clarke — who had imprisoned Nkrumah in 1950 — had developed genuine respect for the man he'd jailed, and the two worked together to ensure a smooth transition that surprised the world with its dignity.</p>
+        <div class="oration">"At long last, the battle has ended! Ghana, your beloved country is free forever! And yet again I want to thank the people of this country — the men and women who have struggled and worked and sacrificed to make this day possible."</div>
+        <p>In the hours before midnight, tens of thousands of people packed the Old Polo Ground in central Accra. The stands were overflowing. People climbed trees and rooftops. Church bells rang across the city. In villages across the country, people danced through the night.</p>
+        <p>Martin Luther King Jr., who had been invited as a personal guest, stood in the crowd and wept openly. He later wrote that the sight of the Ghanaian flag rising deepened his conviction that the freedom struggle in America was inseparable from the liberation of Africa. The experience directly shaped his thinking as he led the Montgomery Bus Boycott and the emerging civil rights movement.</p>
+        <p>US Vice President Richard Nixon attended, representing the Eisenhower administration. The Cold War context was never far away — both East and West sought to align newly independent African nations with their camp. Nkrumah was determined to align Ghana with neither. "We face neither East nor West," he would say soon after. "We face forward."</p>
+        <div class="oration">"Our independence is meaningless unless it is linked up with the total liberation of Africa. We again rededicate ourselves in the struggle to emancipate other countries in Africa."</div>
+        <p>This second declaration was the one that reverberated furthest. Nkrumah was not merely celebrating Ghana's independence — he was placing it within a continental project. For him, 6 March 1957 was not an endpoint but a beginning: the first domino in the decolonisation of an entire continent. In the following decade, his prophecy proved true. By 1965, all but the southernmost African nations had achieved independence.</p>
+        <div class="video-wrapper" style="margin-top:2rem;">
+          <iframe width="420" height="345" src="https://www.youtube.com/embed/fSKtOaHH2cM?rel=0&modestbranding=1"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EYEWITNESS -->
+<section class="section" style="background:var(--dark2);" id="eyewitness">
+  <div class="container">
+    <div class="section-title" data-reveal>
+      <span class="overline">Those Who Were There</span>
+      <h2>Eyewitness Accounts</h2>
+      <p>The voices of those who witnessed the birth of Ghana.</p>
+    </div>
+    <div class="accounts-grid" data-reveal>
+      <div class="account-card">
+        <p class="aq">"I was so happy I could not speak. I watched that flag go up and thought — if they can do it, if a Black nation can stand free and equal on this earth, then we can do it too. Ghana made America's struggle feel possible in a way it never had before."</p>
+        <div class="aname">Martin Luther King Jr.</div>
+        <div class="atitle">Baptist minister &amp; civil rights leader — present at the ceremony, 1957</div>
+      </div>
+      <div class="account-card">
+        <p class="aq">"Nkrumah stood before the crowd and his voice rang out across the darkness. The crowd erupted in a sound I have never heard before or since. It was not merely applause — it was the sound of a people becoming free, and knowing it, all at once."</p>
+        <div class="aname">Reuters Correspondent</div>
+        <div class="atitle">Wire service report filed from Accra, 6 March 1957, 00:15 hours</div>
+      </div>
+      <div class="account-card">
+        <p class="aq">"I stood there and felt that something had shifted in the world — not just for Ghana, not just for Africa, but for every Black person on earth. We were no longer alone. There was a place on the map that was ours, truly ours, without asterisks."</p>
+        <div class="aname">Maya Angelou</div>
+        <div class="atitle">American poet &amp; author — later lived in Accra; described the impact in her memoirs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT CHANGED -->
+<section class="section" id="changed">
+  <div class="container">
+    <div class="section-title" data-reveal>
+      <span class="overline">Before &amp; After Midnight</span>
+      <h2>What Changed at 00:00</h2>
+    </div>
+    <div class="change-grid" data-reveal>
+      <div class="change-item">
+        <div class="ci-before">Before</div>
+        <h4>The Gold Coast Colony</h4>
+        <p>A British Crown Colony — governed by a Governor-General appointed in London, with a Legislative Assembly holding limited power.</p>
+        <span class="arr">↓</span>
+        <div class="ci-after">After</div>
+        <h4>Republic of Ghana</h4>
+        <p>A sovereign independent nation — its own constitution, parliament, and elected government. Kwame Nkrumah as Prime Minister.</p>
+      </div>
+      <div class="change-item">
+        <div class="ci-before">Before</div>
+        <h4>The Union Jack</h4>
+        <p>The British flag flew over all government buildings and courts — the symbol of colonial authority and the Crown's sovereignty over 6 million people.</p>
+        <span class="arr">↓</span>
+        <div class="ci-after">After</div>
+        <h4>The Black Star Flag</h4>
+        <p>Red, gold, and green — with a black star — became the symbol of a free nation. Its Pan-African colours inspired dozens of African flags that followed.</p>
+      </div>
+      <div class="change-item">
+        <div class="ci-before">Before</div>
+        <h4>British Subjects</h4>
+        <p>The people of the Gold Coast were legally subjects of the British Crown — their rights and futures ultimately determined in London, not Accra.</p>
+        <span class="arr">↓</span>
+        <div class="ci-after">After</div>
+        <h4>Ghanaian Citizens</h4>
+        <p>Citizens of a sovereign republic — with constitutionally guaranteed rights, a vote, and a nation to build. The psychological shift was as profound as the legal one.</p>
+      </div>
+      <div class="change-item">
+        <div class="ci-before">Before</div>
+        <h4>Gold Coast Army</h4>
+        <p>The Royal West African Frontier Force — Ghanaian soldiers serving under British officers, with the Queen as Commander-in-Chief.</p>
+        <span class="arr">↓</span>
+        <div class="ci-after">After</div>
+        <h4>Ghana Armed Forces</h4>
+        <p>A national army answerable to the Ghanaian government. Ghana later became one of Africa's leading contributors to UN peacekeeping operations globally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RIPPLE EFFECT -->
+<section class="section" style="background:var(--dark2); text-align:center;" id="ripple">
+  <div class="container">
+    <span class="overline">The Ghana Effect</span>
+    <h2 style="font-size:clamp(28px,4vw,48px); margin-bottom:1rem;">Independence Spreads Across Africa</h2>
+    <p style="color:var(--muted); max-width:560px; margin:0 auto 0; line-height:1.7;">From Accra 1957, a wave of independence swept the continent — Ghana's example proving it was possible.</p>
+    <div class="ripple-grid" data-reveal>
+      <div class="ripple-item"><div class="ryear">1958</div><h4>Guinea</h4><p>First French African colony to vote for full independence — Sékou Touré chose freedom over membership of the French Community.</p></div>
+      <div class="ripple-item"><div class="ryear">1960</div><h4>Nigeria</h4><p>West Africa's largest nation gained independence on 1 October 1960, building directly on the momentum established by Ghana three years earlier.</p></div>
+      <div class="ripple-item"><div class="ryear">1960</div><h4>17 Nations</h4><p>The "Year of Africa" — seventeen African nations gained independence in a single year. Nkrumah's 1957 declaration had lit the fuse.</p></div>
+      <div class="ripple-item"><div class="ryear">1963</div><h4>OAU Founded</h4><p>Nkrumah co-founds the Organisation of African Unity in Addis Ababa — his vision of pan-African continental solidarity institutionalised at last.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:80px 0; text-align:center;">
+  <div class="container" data-reveal>
+    <div class="pull-quote">
+      "We are going to create our own African personality and identity. It is the only way we can show the world that African is ready for its own."
+      <cite style="display:block; margin-top:1rem; font-size:14px; color:var(--gold); font-style:normal; font-weight:600;">— Kwame Nkrumah, Independence Speech, 6 March 1957</cite>
+    </div>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:3rem;">
+      <a href="history.html" class="btn btn-gold">Full History</a>
+      <a href="heroes.html#nkrumah" class="btn btn-outline">Nkrumah's Story</a>
+      <a href="timeline.html" class="btn btn-outline">Full Timeline</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <div class="logo-text">Ghana<span>Our History &amp; Journey</span></div>
+        </div>
+        <p>A comprehensive digital archive celebrating Ghana's rich history, culture, heroes, and journey.</p>
+      </div>
+      <div class="footer-col"><h4>Pages</h4>
+        <a href="index.html">Home</a><a href="history.html">History</a>
+        <a href="independence.html">6 March 1957</a><a href="heroes.html">Heroes</a>
+        <a href="timeline.html">Timeline</a><a href="regions.html">Regions</a>
+        <a href="gallery.html">Gallery</a><a href="journey.html">Our Journey</a>
+      </div>
+      <div class="footer-col"><h4>This Page</h4>
+        <a href="#the-night">The Night</a><a href="#story">The Story</a>
+        <a href="#eyewitness">Eyewitness</a><a href="#changed">What Changed</a>
+        <a href="#ripple">The Ripple Effect</a>
+      </div>
+      <div class="footer-col"><h4>Connect</h4>
+        <a href="#">Twitter / X</a><a href="#">Instagram</a>
+        <a href="#">YouTube</a><a href="#">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Ghana: Our History &amp; Our Journey.</span>
+      <div class="tricolour">
+        <span style="background:var(--red);"></span><span style="background:var(--gold2);"></span>
+        <span style="background:var(--green);"></span>
+        <span style="margin-left:6px;">Freedom &amp; Justice</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="main.js"></script>
+<script>
+  const sf = document.getElementById('stars');
+  for (let i = 0; i < 90; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2.5 + 0.8;
+    s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${size}px;height:${size}px;animation:twinkle ${2+Math.random()*3}s ${Math.random()*3}s infinite;`;
+    sf.appendChild(s);
+  }
+</script>
+</body>
+</html>

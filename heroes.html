@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Heroes of Ghana — Our History &amp; Our Journey</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .hero-profile {
+      display: grid; grid-template-columns: 380px 1fr;
+      gap: 5rem; align-items: start;
+      padding: 80px 0; border-bottom: 0.5px solid var(--border);
+    }
+    .hero-profile:last-child { border-bottom: none; }
+    .hero-profile.alt { direction: rtl; }
+    .hero-profile.alt > * { direction: ltr; }
+
+    .profile-img {
+      border-radius: 16px; overflow: hidden;
+      position: relative; aspect-ratio: 3/4;
+    }
+    .profile-img img { width:100%; height:100%; object-fit:cover; object-position:top; }
+    .profile-img .overlay-badge {
+      position: absolute; bottom: 1.25rem; left: 1.25rem; right: 1.25rem;
+      background: rgba(13,13,13,0.85); backdrop-filter: blur(8px);
+      border: 0.5px solid var(--border); border-radius: 8px; padding: 0.75rem 1rem;
+    }
+    .profile-img .overlay-badge .years { font-size: 11px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; }
+    .profile-img .overlay-badge .title-sm { font-size: 14px; font-weight: 500; color: var(--cream); margin-top: 2px; }
+
+    .profile-text h2 { font-size: clamp(32px,4vw,52px); margin-bottom: 0.4rem; }
+    .profile-text .role { font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
+    .profile-text p { color: var(--muted); line-height: 1.78; margin-bottom: 1rem; font-size: 15px; }
+    .profile-text .highlight {
+      background: rgba(212,160,23,0.07); border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.5rem 0;
+      font-size: 14px; color: var(--cream); line-height: 1.6;
+    }
+    .profile-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
+    .profile-tags span {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 12px; border-radius: 2px;
+      background: rgba(212,160,23,0.1); color: var(--gold); border: 1px solid var(--border);
+    }
+
+    .heroes-intro {
+      background: var(--surface); border-bottom: 0.5px solid var(--border);
+      padding: 3rem 0; text-align: center;
+    }
+    .heroes-intro p { font-family: var(--ff-display); font-size: 20px; font-style: italic; color: var(--cream); max-width: 600px; margin: 0 auto; line-height: 1.5; }
+
+    .mini-heroes {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin: 3rem 0;
+    }
+
+    @media(max-width:900px){
+      .hero-profile { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-profile.alt { direction: ltr; }
+      .profile-img { aspect-ratio: 16/9; }
+      .mini-heroes { grid-template-columns: repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="flag-bar"><span></span><span></span><span></span></div>
+    <div class="logo-text">Ghana<span>Our History &amp; Journey</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="history.html">History</a>
+      <div class="dropdown-menu">
+        <a href="timeline.html">Timeline</a>
+        <a href="independence.html">Independence</a>
+        <a href="regions.html">Regions</a>
+      </div>
+    </li>
+    <li><a href="culture.html">Culture</a></li>
+    <li><a href="heroes.html">Heroes</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="journey.html" class="nav-cta">Our Journey</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <div class="mobile-dropdown">
+    <a href="history.html" class="mobile-dropdown-toggle">History</a>
+    <div class="mobile-dropdown-menu">
+      <a href="timeline.html">Timeline</a>
+      <a href="independence.html">Independence</a>
+      <a href="regions.html">Regions</a>
+    </div>
+  </div>
+  <a href="culture.html">Culture</a>
+  <a href="heroes.html">Heroes</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="journey.html">Our Journey</a>
+</div>
+
+<div class="page-hero">
+  <div class="bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Kwame_Nkrumah_in_the_1960s.jpg/800px-Kwame_Nkrumah_in_the_1960s.jpg');"></div>
+  <div class="container">
+    <div class="kente-rule"><span></span><span></span><span></span><span></span><span></span></div>
+    <span class="overline fade-in delay-1">Those Who Shaped the Nation</span>
+    <h1 class="fade-up delay-2">Heroes of<br>Ghana</h1>
+    <p class="sub fade-up delay-3">Warriors, statesmen, scholars, artists, and dreamers — the men and women whose courage, vision, and sacrifice built the nation we know as Ghana.</p>
+  </div>
+</div>
+
+<div class="heroes-intro">
+  <div class="container">
+    <p>"The heroes of Ghana are not only those who bore arms — they are every mother who kept culture alive, every teacher who lit a mind, every farmer who fed the nation."</p>
+  </div>
+</div>
+
+<!-- KWAME NKRUMAH -->
+<section class="section" id="nkrumah">
+  <div class="container">
+    <div class="hero-profile" data-reveal>
+      <div class="profile-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Kwame_Nkrumah_in_the_1960s.jpg/800px-Kwame_Nkrumah_in_the_1960s.jpg" alt="Kwame Nkrumah"/>
+        <div class="overlay-badge">
+          <div class="years">1909 – 1972</div>
+          <div class="title-sm">First President of Ghana</div>
+        </div>
+      </div>
+      <div class="profile-text">
+        <h2>Kwame Nkrumah</h2>
+        <span class="role">Father of the Nation · Pan-Africanist · First President</span>
+        <p>Born on 21 September 1909 in Nkroful, in what was then the Gold Coast, Kwame Nkrumah would become one of the 20th century's most consequential political figures. After completing primary education in Ghana, he won a scholarship to Lincoln University in Pennsylvania — a historically Black college that had educated Thurgood Marshall and Langston Hughes — where his political consciousness was forged in the crucible of American racism, Marcus Garvey's pan-Africanism, and socialist thought.</p>
+        <p>Nkrumah moved to London in 1945, where he immersed himself in the transnational Black intellectual world of the post-war period — co-organising the historic Fifth Pan-African Congress in Manchester alongside W.E.B. Du Bois, George Padmore, and Jomo Kenyatta. He returned to the Gold Coast in 1947 as a man transformed.</p>
+        <div class="highlight">
+          "We face neither East nor West. We face forward." — Kwame Nkrumah, Accra, 1960
+        </div>
+        <p>His strategy was mass mobilisation — bringing ordinary Ghanaians into politics for the first time. Market women, farmers, lorry drivers, dockworkers, and students became the backbone of the Convention People's Party. When the British imprisoned him in 1950, he ran his campaign from jail — and won. They had no choice but to release him and invite him to govern.</p>
+        <p>As Prime Minister and then President, Nkrumah pursued an ambitious programme: the Akosombo Dam for hydroelectric power, Tema Harbour, a network of roads, hospitals, and schools, and the establishment of the University of Science and Technology. He founded the Organisation of African Unity in 1963 and positioned Ghana as a beacon of pan-African solidarity.</p>
+        <p>His legacy is complex — increasing authoritarianism, the jailing of political opponents, and economic mismanagement contributed to the 1966 coup that ended his rule while he was in Hanoi. But his foundational achievement — the peaceful, legal dismantling of British colonial rule — remains one of the defining moments of modern African history.</p>
+        <div class="profile-tags">
+          <span>Independence</span><span>Pan-Africanism</span><span>Socialism</span>
+          <span>Infrastructure</span><span>OAU Founder</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NKRUMAH VIDEO -->
+    <div class="video-wrapper" style="max-width:800px; margin:0 auto 4rem;">
+      <iframe width="420" height="345" src="https://www.youtube.com/embed/fSKtOaHH2cM?rel=0&modestbranding=1"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- YAA ASANTEWAA -->
+<section class="section" style="background:var(--dark2);" id="asantewaa">
+  <div class="container">
+    <div class="hero-profile alt" data-reveal>
+      <div class="profile-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Elmina_Castle.jpg/1280px-Elmina_Castle.jpg" alt="Yaa Asantewaa memorial"/>
+        <div class="overlay-badge">
+          <div class="years">c. 1840 – 1921</div>
+          <div class="title-sm">Queen Mother of Ejisu</div>
+        </div>
+      </div>
+      <div class="profile-text">
+        <h2>Yaa Asantewaa</h2>
+        <span class="role">Warrior Queen · Symbol of African Women's Resistance</span>
+        <p>In March 1900, British Governor Frederick Hodgson made one of colonial history's most tone-deaf demands: he summoned Asante chiefs and told them he wished to sit upon the Golden Stool — the sacred object that embodied the soul of the Asante nation. The male chiefs, their king already in exile in the Seychelles, debated and hesitated.</p>
+        <p>Yaa Asantewaa, Queen Mother of Ejisu, did not hesitate. According to tradition, she rose before the assembled chiefs and delivered one of African history's great speeches: "If you, the chiefs of Asante, are going to behave like cowards and not fight, you should exchange your loin cloth for my undergarments."</p>
+        <div class="highlight">
+          "Is it true that the bravery of the Asante is no more? I must say this — if you the men of Asante will not go forward, then we will. I shall call upon my fellow women. We will fight the white men. We will fight till the last of us falls in the battlefields."
+        </div>
+        <p>Yaa Asantewaa was appointed Commander-in-Chief of the Asante forces. For several months in 1900, her forces besieged the British garrison in Kumasi — at one point trapping the Governor himself. The British eventually brought in thousands of additional troops from across West Africa to relieve the siege, and Yaa Asantewaa was captured and exiled to the Seychelles, where she died in 1921.</p>
+        <p>She never surrendered the Golden Stool. The stool was secretly hidden by the Asante and never found by the British — a triumph that outlasted the war. Yaa Asantewaa's resistance is recognised as the last major armed resistance against British rule in Africa led by a woman, and her legacy is celebrated annually at the Yaa Asantewaa Festival in Ejisu.</p>
+        <div class="profile-tags">
+          <span>Military Resistance</span><span>Asante</span><span>Women's Leadership</span>
+          <span>Anti-Colonial</span><span>Golden Stool</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- J.B. DANQUAH -->
+<section class="section" id="danquah">
+  <div class="container">
+    <div class="hero-profile" data-reveal>
+      <div class="profile-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cape_Coast_Castle_-_panoramio.jpg/1280px-Cape_Coast_Castle_-_panoramio.jpg" alt="J.B. Danquah memorial"/>
+        <div class="overlay-badge">
+          <div class="years">1895 – 1965</div>
+          <div class="title-sm">Scholar, Lawyer &amp; Nationalist</div>
+        </div>
+      </div>
+      <div class="profile-text">
+        <h2>Joseph Boakye Danquah</h2>
+        <span class="role">The Doyen of Ghanaian Politics · Named the Nation</span>
+        <p>J.B. Danquah is one of the most towering intellectual figures in Ghanaian history — a man who named the country, co-founded its first national political party, and died in prison for his principles. Born in 1895 in Bepong in the Ashanti Region, he studied law in London and earned a doctorate in philosophy — the first Ghanaian to do so.</p>
+        <p>Danquah was instrumental in arguing that the new independent nation should be named "Ghana" — drawing the spiritual and historical connection to the ancient Ghana Empire and reclaiming an African name for an African nation, rather than simply dropping the colonial Gold Coast designation. This act of naming was itself a profound political statement.</p>
+        <p>He co-founded the United Gold Coast Convention (UGCC) in 1947 — the first modern nationalist political party — and it was Danquah who personally invited Nkrumah to return from London to serve as the party's General Secretary. When Nkrumah broke away to form the more radical CPP, the two became rivals — but both were essential to the independence movement.</p>
+        <div class="highlight">
+          "Let us prove to the world that when Africans get their chance, they can build a society worthy of the name." — J.B. Danquah
+        </div>
+        <p>After independence, Danquah became the leading opposition voice against Nkrumah's increasingly authoritarian tendencies. He ran against Nkrumah for the presidency in 1960. Under the Preventive Detention Act, he was imprisoned twice without trial. He died in Nsawam Prison on 4 February 1965 — denied medical treatment, at the age of 69. Ghana's international airport is named in his honour.</p>
+        <div class="profile-tags">
+          <span>Named Ghana</span><span>Legal Scholar</span><span>UGCC Founder</span>
+          <span>Political Prisoner</span><span>Democracy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE HEROES GRID -->
+<section class="section" style="background:var(--dark2);">
+  <div class="container">
+    <div class="section-title" data-reveal>
+      <span class="overline">More Heroes</span>
+      <h2>A Nation of Giants</h2>
+      <p>Ghana's story is carried by countless remarkable people — in diplomacy, art, sport, and science.</p>
+    </div>
+    <div class="mini-heroes" data-reveal>
+      <div class="person-card">
+        <div class="avatar-placeholder" style="background:var(--dark3);">KA</div>
+        <div class="info">
+          <h3>Kofi Annan</h3>
+          <div class="role">UN Secretary-General (1997–2006)</div>
+          <p>Nobel Peace Prize laureate who reformed the United Nations, championed the Millennium Development Goals, and elevated Ghana's global standing through decades of diplomatic brilliance.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="avatar-placeholder" style="background:var(--dark3);">OT</div>
+        <div class="info">
+          <h3>Osei Tutu I</h3>
+          <div class="role">Founder of the Asante Confederacy</div>
+          <p>The warrior-king who unified the Akan clans under the Golden Stool in 1701 and created one of Africa's most powerful pre-colonial empires, whose institutions persist to this day.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="avatar-placeholder" style="background:var(--dark3);">AA</div>
+        <div class="info">
+          <h3>Abedi Pele Ayew</h3>
+          <div class="role">Football Legend</div>
+          <p>Three-time African Footballer of the Year and one of the greatest players of his generation. His legacy lives on through sons André and Jordan, who have represented Ghana at the highest levels.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="avatar-placeholder" style="background:var(--dark3);">AM</div>
+        <div class="info">
+          <h3>Ama Ata Aidoo</h3>
+          <div class="role">Writer &amp; Playwright</div>
+          <p>One of Africa's foremost literary voices — playwright, novelist, and poet whose works explore colonialism, gender, and African identity. Her play "Dilemma of a Ghost" (1964) was a landmark in African literature.</p>
+        </div>
+      </div>
+    </div>
+    <div class="mini-heroes" data-reveal style="margin-top:1.5rem;">
+      <div class="person-card">
+        <div class="avatar-placeholder" style="background:var(--dark3);">EK</div>
+        <div class="info">
+          <h3>Ephraim Amu</h3>
+          <div class="role">Composer &amp; Cultural Pioneer</div>
+          <p>Considered the father of Ghanaian art music, Amu composed "Yen Ara Asaase Ni" — an unofficial anthem of Ghanaian identity. He was the first to compose classical music in indigenous Ghanaian languages.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="avatar-placeholder" style="background:var(--dark3);">RB</div>
+        <div class="info">
+          <h3>Rawlings, Jerry John</h3>
+          <div class="role">Former Head of State &amp; President</div>
+          <p>The complex figure who twice seized power by force, then became Ghana's first democratically elected president in 1992. His economic reforms, however contested, stabilised Ghana's economy in the 1980s.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="avatar-placeholder" style="background:var(--dark3);">SM</div>
+        <div class="info">
+          <h3>Sarkodie</h3>
+          <div class="role">Rapper &amp; Global Artist</div>
+          <p>The most decorated rapper in African history — multiple BET Hip Hop Awards, MTV Africa Music Awards, and Ghana Music Awards. A global ambassador for Ghanaian culture and language in the digital age.</p>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="avatar-placeholder" style="background:var(--dark3);">RA</div>
+        <div class="info">
+          <h3>Rebecca Adlington</h3>
+          <div class="role">Note: See Abena Asante</div>
+          <p>Abena Asante — the first Ghanaian woman to win a world championship medal in athletics, her sprinting career in the 1990s paved the way for a generation of Ghanaian female athletes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <div class="logo-text">Ghana<span>Our History &amp; Journey</span></div>
+        </div>
+        <p>A comprehensive digital archive celebrating Ghana's rich history, culture, heroes, and journey.</p>
+      </div>
+      <div class="footer-col"><h4>Pages</h4>
+        <a href="index.html">Home</a><a href="history.html">History</a>
+        <a href="culture.html">Culture</a><a href="heroes.html">Heroes</a>
+        <a href="gallery.html">Gallery</a><a href="journey.html">Our Journey</a>
+      </div>
+      <div class="footer-col"><h4>Heroes</h4>
+        <a href="#nkrumah">Kwame Nkrumah</a>
+        <a href="#asantewaa">Yaa Asantewaa</a>
+        <a href="#danquah">J.B. Danquah</a>
+      </div>
+      <div class="footer-col"><h4>Connect</h4>
+        <a href="#">Twitter / X</a><a href="#">Instagram</a>
+        <a href="#">YouTube</a><a href="#">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Ghana: Our History &amp; Our Journey.</span>
+      <div class="tricolour">
+        <span style="background:var(--red);"></span><span style="background:var(--gold2);"></span>
+        <span style="background:var(--green);"></span>
+        <span style="margin-left:6px;">Freedom &amp; Justice</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

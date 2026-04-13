@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Culture of Ghana — Our History &amp; Our Journey</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .culture-hero-grid {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 280px 280px; gap: 3px;
+      margin-top: 3rem;
+    }
+    .c-cell { overflow: hidden; position: relative; }
+    .c-cell img { width:100%; height:100%; object-fit:cover; transition: transform 0.5s; }
+    .c-cell:hover img { transform: scale(1.06); }
+    .c-cell.big { grid-column: span 2; grid-row: span 2; }
+    .c-cell .label {
+      position: absolute; bottom: 1rem; left: 1rem;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gold);
+      background: rgba(13,13,13,0.7); padding: 4px 10px; border-radius: 3px;
+    }
+
+    .adinkra-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    .adinkra-card {
+      background: var(--dark3); border: 0.5px solid var(--border);
+      border-radius: 12px; padding: 1.5rem; text-align: center;
+      transition: transform 0.3s;
+    }
+    .adinkra-card:hover { transform: translateY(-4px); }
+    .adinkra-card .symbol {
+      font-size: 48px; margin-bottom: 0.75rem; line-height: 1;
+    }
+    .adinkra-card h4 { font-size: 14px; font-weight: 600; color: var(--gold); margin-bottom: 4px; }
+    .adinkra-card .meaning { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .adinkra-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    .music-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;
+    }
+    .music-video-col { display: flex; flex-direction: column; gap: 1.5rem; }
+    .music-text { display: flex; flex-direction: column; justify-content: center; }
+    .music-text h2 { font-size: clamp(28px,4vw,42px); margin-bottom: 1rem; }
+    .music-text p { color: var(--muted); line-height: 1.75; margin-bottom: 1rem; }
+
+    .festival-cards {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2rem;
+    }
+    .festival-card {
+      border-radius: 12px; overflow: hidden; position: relative; height: 340px;
+      cursor: pointer;
+    }
+    .festival-card img { width:100%; height:100%; object-fit:cover; transition: transform 0.5s; }
+    .festival-card:hover img { transform: scale(1.06); }
+    .festival-card .info {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.4) 70%, transparent 100%);
+      padding: 2rem 1.5rem 1.5rem;
+    }
+    .festival-card .info h3 { font-size: 22px; margin-bottom: 4px; }
+    .festival-card .info p { font-size: 13px; color: rgba(245,238,220,0.65); line-height: 1.5; }
+    .festival-card .info .badge-sm {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; display: block;
+    }
+
+    .food-grid {
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; margin-top: 2rem;
+    }
+    .food-item {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      background: var(--dark3); border: 0.5px solid var(--border);
+      border-radius: 12px; padding: 1.25rem;
+    }
+    .food-item .icon {
+      width: 48px; height: 48px; border-radius: 8px; flex-shrink: 0;
+      background: rgba(212,160,23,0.1); display: flex; align-items: center;
+      justify-content: center; font-size: 24px;
+    }
+    .food-item h4 { font-size: 16px; margin-bottom: 4px; }
+    .food-item p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+    @media(max-width:768px){
+      .culture-hero-grid { grid-template-columns: 1fr 1fr; }
+      .c-cell.big { grid-column: span 2; grid-row: span 1; }
+      .adinkra-grid { grid-template-columns: repeat(2,1fr); }
+      .music-row { grid-template-columns: 1fr; }
+      .festival-cards { grid-template-columns: 1fr; }
+      .food-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="flag-bar"><span></span><span></span><span></span></div>
+    <div class="logo-text">Ghana<span>Our History &amp; Journey</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <a href="history.html">History</a>
+      <div class="dropdown-menu">
+        <a href="timeline.html">Timeline</a>
+        <a href="independence.html">Independence</a>
+        <a href="regions.html">Regions</a>
+      </div>
+    </li>
+    <li><a href="culture.html">Culture</a></li>
+    <li><a href="heroes.html">Heroes</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="journey.html" class="nav-cta">Our Journey</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <div class="mobile-dropdown">
+    <a href="history.html" class="mobile-dropdown-toggle">History</a>
+    <div class="mobile-dropdown-menu">
+      <a href="timeline.html">Timeline</a>
+      <a href="independence.html">Independence</a>
+      <a href="regions.html">Regions</a>
+    </div>
+  </div>
+  <a href="culture.html">Culture</a>
+  <a href="heroes.html">Heroes</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="journey.html">Our Journey</a>
+</div>
+
+<div class="page-hero">
+  <div class="bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Traditional_kente_cloth.jpg/1280px-Traditional_kente_cloth.jpg');"></div>
+  <div class="container">
+    <div class="kente-rule"><span></span><span></span><span></span><span></span><span></span></div>
+    <span class="overline fade-in delay-1">The Living Traditions</span>
+    <h1 class="fade-up delay-2">Culture<br>of Ghana</h1>
+    <p class="sub fade-up delay-3">A vibrant mosaic of art, music, language, faith, food, and festival — the living spirit of a people with deep roots and an ever-evolving identity.</p>
+  </div>
+</div>
+
+<!-- KENTE -->
+<section class="section" id="kente">
+  <div class="container">
+    <div class="split">
+      <div class="split-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Traditional_kente_cloth.jpg/1280px-Traditional_kente_cloth.jpg" alt="Kente cloth"/>
+      </div>
+      <div class="split-text">
+        <span class="overline">Textiles</span>
+        <h2>Kente Cloth — Woven Identity</h2>
+        <p>Kente is not merely fabric — it is a language. Each colour, each geometric pattern woven on the narrow-strip looms of Bonwire near Kumasi carries a specific name, meaning, and appropriate occasion. Gold represents royalty, wealth, and spiritual purity. Green evokes growth and renewal. Red signals political and sacrificial significance. Black represents spiritual maturity and the ancestors.</p>
+        <p>The Asante tradition traces kente to the 17th century, with the legendary weavers Ota Kraban and Kwaku Ameyaw who, inspired by a spider's web, created the first kente patterns. The Ewe people of the Volta region have their own ancient kente tradition, with more pictorial and narrative patterns that tell stories of community life and proverbs.</p>
+        <p>Today, kente is worn globally as a symbol of African pride — at graduation ceremonies, state functions, and cultural events from Accra to Atlanta. In 2020, members of the US Congress wore kente stoles in solidarity with the Black Lives Matter movement — a powerful testament to the cloth's reach.</p>
+        <div class="fact-box">
+          <strong>Kente at the United Nations</strong>
+          <p>Ghana's President Nana Akufo-Addo regularly addresses the UN General Assembly wearing kente — a diplomatic statement that Ghana's ancient cultural heritage stands equal with any Western suit.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="culture-hero-grid" data-reveal>
+      <div class="c-cell big"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Traditional_kente_cloth.jpg/1280px-Traditional_kente_cloth.jpg" alt="Kente"/><div class="label">Kente weaving</div></div>
+      <div class="c-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Osei_Kwame_Bonsu_2019.jpg/800px-Osei_Kwame_Bonsu_2019.jpg" alt="Asante chief in kente"/><div class="label">Royal kente</div></div>
+      <div class="c-cell"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Kwame_Nkrumah_in_the_1960s.jpg/800px-Kwame_Nkrumah_in_the_1960s.jpg" alt="Ghana heritage"/><div class="label">Heritage</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ADINKRA -->
+<section class="section" style="background:var(--dark2);" id="adinkra">
+  <div class="container">
+    <div class="section-title" data-reveal>
+      <span class="overline">Symbolism</span>
+      <h2>Adinkra — Symbols of Wisdom</h2>
+      <p>The Adinkra symbols of the Asante are a visual philosophy — a system of geometric glyphs that encode proverbs, concepts, and values. Stamped on cloth or carved into architecture, they are one of the world's great visual languages.</p>
+    </div>
+    <div class="adinkra-grid" data-reveal>
+      <div class="adinkra-card">
+        <div class="symbol">⊕</div>
+        <h4>Gye Nyame</h4>
+        <div class="meaning">Supremacy of God</div>
+        <p>The most widely used Adinkra symbol — "except for God" — representing the omnipotence and immortality of the Supreme Being.</p>
+      </div>
+      <div class="adinkra-card">
+        <div class="symbol">♻</div>
+        <h4>Sankofa</h4>
+        <div class="meaning">Return &amp; Retrieve</div>
+        <p>"It is not wrong to go back and fetch what you forgot." The symbol of learning from the past — often depicted as a bird looking backward.</p>
+      </div>
+      <div class="adinkra-card">
+        <div class="symbol">✦</div>
+        <h4>Nyame Nwu Na Mawu</h4>
+        <div class="meaning">Eternal Life</div>
+        <p>"God never dies, therefore I cannot die." A symbol of the immortality of the human soul and Ghana's deep spiritual philosophy.</p>
+      </div>
+      <div class="adinkra-card">
+        <div class="symbol">◈</div>
+        <h4>Dwennimmen</h4>
+        <div class="meaning">Humility &amp; Strength</div>
+        <p>The ram's horns — symbolising that even the strong must be humble. True strength requires wisdom, not merely power.</p>
+      </div>
+      <div class="adinkra-card">
+        <div class="symbol">❋</div>
+        <h4>Aya</h4>
+        <div class="meaning">Endurance</div>
+        <p>The fern — a plant that thrives in difficult conditions — represents endurance, resourcefulness, and the will to survive adversity.</p>
+      </div>
+      <div class="adinkra-card">
+        <div class="symbol">⬡</div>
+        <h4>Funtunfunefu</h4>
+        <div class="meaning">Unity in Diversity</div>
+        <p>Two crocodiles sharing a stomach — symbolising democracy and shared fate. Despite differences, we are united by common needs.</p>
+      </div>
+      <div class="adinkra-card">
+        <div class="symbol">☽</div>
+        <h4>Bese Saka</h4>
+        <div class="meaning">Power &amp; Plenty</div>
+        <p>The kola nut sack — symbol of affluence, abundance, and the power that comes from unity and cooperation.</p>
+      </div>
+      <div class="adinkra-card">
+        <div class="symbol">⚔</div>
+        <h4>Akofena</h4>
+        <div class="meaning">Courage &amp; Authority</div>
+        <p>Crossed swords of authority — representing the legitimate use of power and the courage to defend what is right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section class="section" id="music">
+  <div class="container">
+    <div class="section-title" data-reveal>
+      <span class="overline">Music &amp; Sound</span>
+      <h2>From Highlife to Afrobeats</h2>
+      <p>Ghana's musical contribution to the world is extraordinary — a nation that gave birth to Highlife in the 1920s, shaped Afrobeats in the 2000s, and produces artists that consistently dominate global charts.</p>
+    </div>
+    <div class="music-row" data-reveal>
+      <div class="music-text">
+        <span class="overline">Born in Accra</span>
+        <h2>Highlife: Ghana's Original Sound</h2>
+        <p>Highlife emerged in the early 20th century from the coastal towns of Ghana — a dazzling blend of traditional Akan rhythms, Western brass-band music, and Caribbean influence. Unlike many colonial-era musics that simply imitated Western forms, Highlife was an assertion: we take your instruments and make them ours.</p>
+        <p>The Tempos, E.T. Mensah, and later K. Gyasi, Nana Ampadu, and the African Brothers Band built an extraordinary body of work — complex guitar lines, lilting brass, and Twi lyrics that explored love, social commentary, and Ghanaian life. Highlife is the soundtrack of modern Ghana's birth.</p>
+        <p>From Highlife grew Burger Highlife (produced by Ghanaian diaspora in Germany), Hiplife (a 1990s fusion with hip-hop championed by Reggie Rockstone), and eventually the global phenomenon of Afrobeats — in which Ghanaian artists like Sarkodie, Stonebwoy, and Shatta Wale are central figures.</p>
+      </div>
+      <div class="music-video-col">
+        <div class="video-wrapper">
+          <iframe width="420" height="345" src="https://www.youtube.com/embed/KpIxMSyfHUY?rel=0&modestbranding=1"></iframe>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <span class="overline">Modern Ghana</span>
+            <h3>Afrobeats &amp; the Global Stage</h3>
+            <p>Today's Ghanaian artists — Sarkodie, Stonebwoy, Shatta Wale, Efya, and Amaarae — are part of a global Afrobeats movement that has conquered streaming platforms, sold out international arenas, and brought Ghanaian culture to every continent.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FESTIVALS -->
+<section class="section" style="background:var(--dark2);" id="festivals">
+  <div class="container">
+    <div class="section-title" data-reveal>
+      <span class="overline">Annual Celebrations</span>
+      <h2>Ghana's Festival Calendar</h2>
+      <p>Festivals are the heartbeat of Ghanaian communal life — occasions to honour ancestors, celebrate harvests, reaffirm identity, and bind communities together in joy.</p>
+    </div>
+    <div class="festival-cards" data-reveal>
+      <div class="festival-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Osei_Kwame_Bonsu_2019.jpg/800px-Osei_Kwame_Bonsu_2019.jpg" alt="Akwasidae"/>
+        <div class="info">
+          <span class="badge-sm">Asante · Every 6 weeks</span>
+          <h3>Akwasidae</h3>
+          <p>The Asante's most sacred ceremony, held every six weeks at the Manhyia Palace in Kumasi. Chiefs arrive in full regalia to pay homage to the Asantehene and commune with ancestral spirits.</p>
+        </div>
+      </div>
+      <div class="festival-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cape_Coast_Castle_-_panoramio.jpg/1280px-Cape_Coast_Castle_-_panoramio.jpg" alt="Homowo"/>
+        <div class="info">
+          <span class="badge-sm">Ga People · September</span>
+          <h3>Homowo</h3>
+          <p>The Ga people's harvest festival of "hooting at hunger." Families gather to share palm nut soup and kpokpoi, pour libations for ancestors, and celebrate survival — a memory of a great famine overcome.</p>
+        </div>
+      </div>
+      <div class="festival-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Traditional_kente_cloth.jpg/1280px-Traditional_kente_cloth.jpg" alt="Hogbetsotso"/>
+        <div class="info">
+          <span class="badge-sm">Anlo Ewe · November</span>
+          <h3>Hogbetsotso</h3>
+          <p>The Anlo Ewe people's commemoration of their liberation from the tyrannical king Agorkorli. The festival re-enacts the epic midnight escape from Notsie in present-day Togo — a story of courage and freedom.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD -->
+<section class="section" id="food">
+  <div class="container">
+    <div class="section-title" data-reveal>
+      <span class="overline">Cuisine</span>
+      <h2>The Flavours of Ghana</h2>
+      <p>Ghanaian cuisine is built on bold flavours, communal eating, and a deep connection between food and identity. Every dish tells a story of the land, its seasons, and its people.</p>
+    </div>
+    <div class="food-grid" data-reveal>
+      <div class="food-item">
+        <div class="icon">🍲</div>
+        <div>
+          <h4>Fufu &amp; Light Soup</h4>
+          <p>The quintessential Ghanaian meal — cassava and plantain pounded to a smooth, elastic dough, served in a rich, fragrant soup of tomato, pepper, and goat meat or chicken. Eaten communally, with the hand, from a shared bowl.</p>
+        </div>
+      </div>
+      <div class="food-item">
+        <div class="icon">🍚</div>
+        <div>
+          <h4>Jollof Rice</h4>
+          <p>Fragrant long-grain rice cooked slowly in a base of tomato, onion, and a proprietary spice blend. Ghana's jollof — cooked over firewood for the coveted "bottom pot" smoky crust — is the subject of a friendly rivalry with Nigerian and Senegalese versions.</p>
+        </div>
+      </div>
+      <div class="food-item">
+        <div class="icon">🌿</div>
+        <div>
+          <h4>Waakye</h4>
+          <p>A beloved Accra street-food breakfast — rice and black-eyed peas cooked together with dried sorghum leaves that stain the dish a distinctive reddish-purple. Served with spaghetti, hard-boiled egg, fried plantain, and a spiced pepper sauce.</p>
+        </div>
+      </div>
+      <div class="food-item">
+        <div class="icon">🍌</div>
+        <div>
+          <h4>Kelewele</h4>
+          <p>Spiced fried plantain cubes — a simple street food of extraordinary flavour. Ripe plantain is diced and marinated in ginger, chilli, and spices, then fried golden. Sold at night markets across Ghana as an evening snack.</p>
+        </div>
+      </div>
+      <div class="food-item">
+        <div class="icon">🥜</div>
+        <div>
+          <h4>Groundnut Soup</h4>
+          <p>A richly spiced peanut-based soup cooked with tomatoes, onions, and palm oil, served with meat or fish over rice or fufu. Nutritious, warming, and deeply aromatic — a staple of both household kitchens and roadside chop bars.</p>
+        </div>
+      </div>
+      <div class="food-item">
+        <div class="icon">🌊</div>
+        <div>
+          <h4>Banku &amp; Tilapia</h4>
+          <p>A fermented cassava and corn dough served with whole grilled tilapia, fresh pepper sauce (shito), and sliced onions. The national dish of the coastal regions — best eaten at a fishing village with the Atlantic breeze.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGE -->
+<section class="section" style="background:var(--dark2);" id="language">
+  <div class="container">
+    <div class="split reverse" data-reveal>
+      <div class="split-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cape_Coast_Castle_-_panoramio.jpg/1280px-Cape_Coast_Castle_-_panoramio.jpg" alt="Ghana landscape"/>
+      </div>
+      <div class="split-text">
+        <span class="overline">Languages</span>
+        <h2>A Nation of 80 Tongues</h2>
+        <p>Ghana is home to approximately 80 distinct languages spanning five major language families. This linguistic diversity reflects the country's rich ethnic mosaic — and its extraordinary capacity for coexistence.</p>
+        <p><strong style="color:var(--gold);">Akan (Twi, Fante)</strong> — spoken by nearly half the population as a first or second language. Twi functions as a lingua franca across much of southern Ghana.</p>
+        <p><strong style="color:var(--gold);">English</strong> — the official language of government, education, and formal commerce, inherited from the colonial period but thoroughly Ghanaianised.</p>
+        <p><strong style="color:var(--gold);">Ga and Dangme</strong> — languages of the Greater Accra region, home to the Ga-Adangbe peoples who have inhabited the coast for millennia.</p>
+        <p><strong style="color:var(--gold);">Ewe</strong> — spoken across the Volta Region, sharing roots with the Ewe people of Togo and Benin.</p>
+        <p><strong style="color:var(--gold);">Dagbani and Hausa</strong> — major languages of northern Ghana, with Hausa serving as a regional trade language connecting Ghana to the broader Sahel.</p>
+        <div class="fact-box">
+          <strong>Ghanaian Pidgin English</strong>
+          <p>Ghanaian English has developed its own distinctive vocabulary, rhythm, and grammar. Expressions like "I'm coming" (I'll be back in a moment), "Please" (used as a softener), and the particle "ooo" at the end of sentences mark a rich linguistic identity all its own.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <div class="logo-text">Ghana<span>Our History &amp; Journey</span></div>
+        </div>
+        <p>A comprehensive digital archive celebrating Ghana's rich history, culture, heroes, and journey.</p>
+      </div>
+      <div class="footer-col"><h4>Pages</h4>
+        <a href="index.html">Home</a><a href="history.html">History</a>
+        <a href="culture.html">Culture</a><a href="heroes.html">Heroes</a>
+        <a href="gallery.html">Gallery</a><a href="journey.html">Our Journey</a>
+      </div>
+      <div class="footer-col"><h4>Culture</h4>
+        <a href="#kente">Kente</a><a href="#adinkra">Adinkra</a>
+        <a href="#music">Music</a><a href="#festivals">Festivals</a>
+        <a href="#food">Food</a><a href="#language">Language</a>
+      </div>
+      <div class="footer-col"><h4>Connect</h4>
+        <a href="#">Twitter / X</a><a href="#">Instagram</a>
+        <a href="#">YouTube</a><a href="#">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Ghana: Our History &amp; Our Journey.</span>
+      <div class="tricolour">
+        <span style="background:var(--red);"></span>
+        <span style="background:var(--gold2);"></span>
+        <span style="background:var(--green);"></span>
+        <span style="margin-left:6px;">Freedom &amp; Justice</span>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
