@@ -263,7 +263,7 @@ nav {
 /* ── Page hero ── */
 .page-hero {
   min-height: 52vh; display: flex; align-items: flex-end;
-  padding-bottom: 4rem;
+  padding-bottom: 140px;
   position: relative; overflow: hidden;
   margin-top: var(--nav-h);
 }

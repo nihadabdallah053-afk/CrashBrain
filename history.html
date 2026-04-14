@@ -1,453 +1,731 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>History of Ghana — Our History &amp; Our Journey</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
   <style>
     .era-nav {
-      background: var(--dark3); border-bottom: 0.5px solid var(--border);
-      position: sticky; top: var(--nav-h); z-index: 500;
+      background: var(--dark3);
+      border-bottom: 0.5px solid var(--border);
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 500;
     }
+
     .era-nav .container {
-      display: flex; gap: 0; overflow-x: auto;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
     }
+
     .era-nav a {
-      padding: 1rem 1.5rem; font-size: 12px; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--muted); white-space: nowrap;
+      padding: 1rem 1.5rem;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
       border-bottom: 2px solid transparent;
       transition: color 0.2s, border-color 0.2s;
     }
-    .era-nav a:hover { color: var(--gold); border-color: var(--gold); }
 
-    .era-section { padding: 80px 0; border-bottom: 0.5px solid var(--border); }
-    .era-section:last-of-type { border-bottom: none; }
+    .era-nav a:hover {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .era-section {
+      padding: 80px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .era-section:last-of-type {
+      border-bottom: none;
+    }
 
     .era-header {
       margin-bottom: 4rem;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
     }
-    .era-header h2 { font-size: clamp(36px,5vw,60px); }
-    .era-header p { color: var(--muted); line-height: 1.75; font-size: 16px; }
+
+    .era-header h2 {
+      font-size: clamp(36px, 5vw, 60px);
+    }
+
+    .era-header p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 16px;
+    }
 
     .img-mosaic {
-      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 260px 260px; gap: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 260px 260px;
+      gap: 12px;
     }
-    .img-mosaic .m1 { grid-row: span 2; }
-    .img-mosaic .m1 img, .img-mosaic .m2 img, .img-mosaic .m3 img {
-      width: 100%; height: 100%; object-fit: cover; border-radius: 8px;
+
+    .img-mosaic .m1 {
+      grid-row: span 2;
     }
-    .img-mosaic .m1 { height: 532px; }
+
+    .img-mosaic .m1 img,
+    .img-mosaic .m2 img,
+    .img-mosaic .m3 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .img-mosaic .m1 {
+      height: 532px;
+    }
 
     .fact-box {
-      background: rgba(212,160,23,0.07); border: 1px solid var(--border);
+      background: rgba(212, 160, 23, 0.07);
+      border: 1px solid var(--border);
       border-left: 3px solid var(--gold);
-      border-radius: 0 8px 8px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
     }
-    .fact-box strong { font-size: 13px; letter-spacing: 0.05em; color: var(--gold); }
-    .fact-box p { font-size: 14px; color: var(--cream); margin-top: 4px; line-height: 1.6; }
 
-    .two-col-text { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
-    .two-col-text p { font-size: 15px; color: var(--muted); line-height: 1.75; }
+    .fact-box strong {
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+    }
+
+    .fact-box p {
+      font-size: 14px;
+      color: var(--cream);
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+
+    .two-col-text {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .two-col-text p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
 
     .inline-img {
-      border-radius: 12px; overflow: hidden;
+      border-radius: 12px;
+      overflow: hidden;
       margin: 2.5rem 0;
     }
-    .inline-img img { width: 100%; max-height: 450px; object-fit: cover; }
+
+    .inline-img img {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      filter: sepia(0.6) grayscale(0.3) brightness(0.95) contrast(1.1);
+    }
+
+    .split-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(0.6) grayscale(0.3) brightness(0.95) contrast(1.1);
+    }
+
+    .card:first-child .card-img {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:first-child .card-img::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(101, 67, 33, 0.4);
+      mix-blend-mode: multiply;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .card:first-child .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(0.85) grayscale(0.5) brightness(0.85) contrast(1.3) invert(0.05);
+      position: relative;
+      z-index: 0;
+    }
+
     .inline-img figcaption {
-      padding: 0.75rem 1rem; background: var(--dark3);
-      font-size: 12px; color: var(--muted); font-style: italic;
+      padding: 0.75rem 1rem;
+      background: var(--dark3);
+      font-size: 12px;
+      color: var(--muted);
+      font-style: italic;
       border-top: 0.5px solid var(--border);
     }
 
-    @media(max-width:768px){
-      .era-header { grid-template-columns: 1fr; }
-      .img-mosaic { grid-template-columns: 1fr; }
-      .img-mosaic .m1 { height: 260px; grid-row: span 1; }
-      .two-col-text { grid-template-columns: 1fr; }
+    @media(max-width:768px) {
+      .era-header {
+        grid-template-columns: 1fr;
+      }
+
+      .img-mosaic {
+        grid-template-columns: 1fr;
+      }
+
+      .img-mosaic .m1 {
+        height: 260px;
+        grid-row: span 1;
+      }
+
+      .two-col-text {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">
-    <div class="flag-bar"><span></span><span></span><span></span></div>
-    <div class="logo-text">Ghana<span>Our History &amp; Journey</span></div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li class="nav-dropdown">
-      <a href="history.html">History</a>
-      <div class="dropdown-menu">
-        <a href="timeline.html">Timeline</a>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="flag-bar"><span></span><span></span><span></span></div>
+      <div class="logo-text">Ghana<span>Our History &amp; Journey</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav-dropdown">
+        <a href="history.html">History</a>
+        <div class="dropdown-menu">
+          <a href="ancient-empires.html">Ancient Empires</a>
+          <a href="akan-kingdoms.html">Akan Kingdoms</a>
+          <a href="asante-empire.html">Asante Empire</a>
+          <a href="colonial-era.html">Colonial Era</a>
+          <a href="independence.html">Independence</a>
+          <a href="republic.html">The Republic</a>
+        </div>
+      </li>
+      <li><a href="culture.html">Culture</a></li>
+      <li><a href="heroes.html">Heroes</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="journey.html" class="nav-cta">Our Journey</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home</a>
+    <div class="mobile-dropdown">
+      <a href="history.html" class="mobile-dropdown-toggle">History</a>
+      <div class="mobile-dropdown-menu">
+        <a href="ancient-empires.html">Ancient Empires</a>
+        <a href="akan-kingdoms.html">Akan Kingdoms</a>
+        <a href="asante-empire.html">Asante Empire</a>
+        <a href="colonial-era.html">Colonial Era</a>
         <a href="independence.html">Independence</a>
-        <a href="regions.html">Regions</a>
+        <a href="republic.html">The Republic</a>
       </div>
-    </li>
-    <li><a href="culture.html">Culture</a></li>
-    <li><a href="heroes.html">Heroes</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="journey.html" class="nav-cta">Our Journey</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
-</nav>
-<div class="mobile-menu" id="mobile-menu">
-  <a href="index.html">Home</a>
-  <div class="mobile-dropdown">
-    <a href="history.html" class="mobile-dropdown-toggle">History</a>
-    <div class="mobile-dropdown-menu">
-      <a href="timeline.html">Timeline</a>
+    </div>
+    <a href="culture.html">Culture</a>
+    <a href="heroes.html">Heroes</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="journey.html">Our Journey</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="bg" style="background-image: url('/imgaes/history.jpg');"></div>
+    <div class="container">
+      <div class="kente-rule"><span></span><span></span><span></span><span></span><span></span></div>
+      <span class="overline fade-in delay-1">A Thousand Years in the Making</span>
+      <h1 class="fade-up delay-2">History<br>of Ghana</h1>
+      <p class="sub fade-up delay-3">From the ancient Ghana Empire of the Sahel to the Fourth Republic — the complete
+        chronicle of a remarkable nation.</p>
+    </div>
+  </div>
+
+  <!-- ERA NAV -->
+  <div class="era-nav">
+    <div class="container">
+      <a href="ancient-empires.html">Ancient Empires</a>
+      <a href="akan-kingdoms.html">Akan Kingdoms</a>
+      <a href="asante-empire.html">Asante Empire</a>
+      <a href="colonial-era.html">Colonial Era</a>
       <a href="independence.html">Independence</a>
-      <a href="regions.html">Regions</a>
+      <a href="republic.html">The Republic</a>
     </div>
   </div>
-  <a href="culture.html">Culture</a>
-  <a href="heroes.html">Heroes</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="journey.html">Our Journey</a>
-</div>
 
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div class="bg" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Elmina_Castle.jpg/1280px-Elmina_Castle.jpg');"></div>
-  <div class="container">
-    <div class="kente-rule"><span></span><span></span><span></span><span></span><span></span></div>
-    <span class="overline fade-in delay-1">A Thousand Years in the Making</span>
-    <h1 class="fade-up delay-2">History<br>of Ghana</h1>
-    <p class="sub fade-up delay-3">From the ancient Ghana Empire of the Sahel to the Fourth Republic — the complete chronicle of a remarkable nation.</p>
-  </div>
-</div>
-
-<!-- ERA NAV -->
-<div class="era-nav">
-  <div class="container">
-    <a href="#empires">Ancient Empires</a>
-    <a href="#akan">Akan Kingdoms</a>
-    <a href="#asante">Asante Empire</a>
-    <a href="#colonial">Colonial Era</a>
-    <a href="#independence">Independence</a>
-    <a href="#republic">The Republic</a>
-  </div>
-</div>
-
-<!-- SECTION 1: ANCIENT EMPIRES -->
-<section class="era-section" id="empires">
-  <div class="container">
-    <div class="era-header">
-      <div>
-        <div class="tag tag-empire" style="margin-bottom:1rem;">300 – 1076 AD</div>
-        <h2>The Ancient Ghana Empire</h2>
-      </div>
-      <p>Though geographically located in what is today Mali and Mauritania, the ancient Ghana Empire — known to its people as Wagadou — gave the modern nation its name and its spiritual heritage. It was West Africa's first great empire, built on the crossroads of the trans-Saharan trade.</p>
-    </div>
-
-    <div class="split">
-      <div class="split-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Saharan_gold_trade_routes.jpg/1280px-Saharan_gold_trade_routes.jpg" alt="Trans-Saharan trade routes"/>
-      </div>
-      <div class="split-text">
-        <span class="overline">The First Empire</span>
-        <h2>Wagadou: The Land of Gold</h2>
-        <p>The Ghana Empire — formally called Wagadou — arose around the 4th century AD from the Soninke people. Positioned at the intersection of gold-bearing forests to the south and salt mines of the Sahara to the north, Wagadou became extraordinarily wealthy by controlling and taxing the flow of these essential commodities.</p>
-        <p>The empire's capital, Koumbi Saleh, was one of the largest cities of the medieval world, reportedly home to 20,000 people at its height. Its king commanded an army of 200,000 men and maintained courts of dazzling opulence that astonished Arab travellers like Al-Bakri, who documented its splendour in 1068.</p>
-        <p>The empire's prosperity derived not from conquest alone but from statecraft — a sophisticated tax system, standardised weights and measures for gold dust, and a legal framework that governed trade disputes across thousands of miles.</p>
-        <div class="fact-box">
-          <strong>Key Fact</strong>
-          <p>The king of ancient Ghana was so wealthy that his horses wore golden blankets and his dogs wore golden collars, according to Arab chronicler Al-Bakri writing in 1068 AD.</p>
+  <!-- SECTION 1: ANCIENT EMPIRES -->
+  <section class="era-section" id="empires">
+    <div class="container">
+      <div class="era-header">
+        <div>
+          <div class="tag tag-empire" style="margin-bottom:1rem;">300 – 1076 AD</div>
+          <h2>The Ancient Ghana Empire</h2>
         </div>
-        <p>The empire's decline came gradually — Almoravid Berber pressure from the north beginning around 1050 AD disrupted trade routes and destabilised the political order. By 1076, the capital had fallen, though regional successors continued to govern until the 13th century.</p>
+        <p>Though geographically located in what is today Mali and Mauritania, the ancient Ghana Empire — known to its
+          people as Wagadou — gave the modern nation its name and its spiritual heritage. It was West Africa's first
+          great empire, built on the crossroads of the trans-Saharan trade.</p>
       </div>
-    </div>
 
-    <div class="blockquote" style="margin-top:3rem;">
-      <p>"The king of Ghana can put two hundred thousand warriors in the field, more than forty thousand being armed with bow and arrow."</p>
-      <cite>— Al-Bakri, Arab geographer, writing c. 1068 AD</cite>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 2: AKAN KINGDOMS -->
-<section class="era-section" id="akan" style="background:var(--dark2);">
-  <div class="container">
-    <div class="era-header">
-      <div>
-        <div class="tag tag-empire" style="margin-bottom:1rem;">1200 – 1700</div>
-        <h2>The Akan Kingdoms</h2>
-      </div>
-      <p>Long before the Asante Confederacy, the Akan-speaking peoples of the forest zone established a network of sophisticated, independent kingdoms — each with its own traditions, armies, and gold-trading networks that would shape the identity of modern Ghana.</p>
-    </div>
-
-    <div class="grid-3" style="margin-bottom:3rem;">
-      <div class="card">
-        <div class="card-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Osei_Kwame_Bonsu_2019.jpg/800px-Osei_Kwame_Bonsu_2019.jpg" alt="Akan kingdom"/></div>
-        <div class="card-body">
-          <span class="overline">Bono State</span>
-          <h3>Kingdom of Bono (c. 1400s)</h3>
-          <p>The Bono (or Brong) state was among the earliest Akan kingdoms, centred around modern Techiman. It became a major gold-trading hub and is considered the ancestral state from which many later Akan peoples migrated.</p>
+      <div class="split">
+        <div class="split-img">
+          <img
+            src="/imgaes/The Land of Gold images.jpg"
+            alt="Wagadou: The Land of Gold" />
         </div>
+        <div class="split-text">
+          <span class="overline">The First Empire</span>
+          <h2>Wagadou: The Land of Gold</h2>
+          <p>The Ghana Empire — formally called Wagadou — arose around the 4th century AD from the Soninke people.
+            Positioned at the intersection of gold-bearing forests to the south and salt mines of the Sahara to the
+            north, Wagadou became extraordinarily wealthy by controlling and taxing the flow of these essential
+            commodities.</p>
+          <p>The empire's capital, Koumbi Saleh, was one of the largest cities of the medieval world, reportedly home to
+            20,000 people at its height. Its king commanded an army of 200,000 men and maintained courts of dazzling
+            opulence that astonished Arab travellers like Al-Bakri, who documented its splendour in 1068.</p>
+          <a href="ancient-empires.html" class="btn btn-gold" style="margin-top:1.5rem;">Read More ↗</a>
+          <!-- <p>The empire's prosperity derived not from conquest alone but from statecraft — a sophisticated tax system,
+            standardised weights and measures for gold dust, and a legal framework that governed trade disputes across
+            thousands of miles.</p> -->
+          <!-- <div class="fact-box">
+            <strong>Key Fact</strong>
+            <p>The king of ancient Ghana was so wealthy that his horses wore golden blankets and his dogs wore golden
+              collars, according to Arab chronicler Al-Bakri writing in 1068 AD.</p>
+          </div> -->
+          <!-- <p>The empire's decline came gradually — Almoravid Berber pressure from the north beginning around 1050 AD
+            disrupted trade routes and destabilised the political order. By 1076, the capital had fallen, though
+            regional successors continued to govern until the 13th century.</p>
+        </div> -->
       </div>
-      <div class="card">
-        <div class="card-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Denkyira_state_council.jpg/800px-Denkyira_state_council.jpg" alt="Denkyira"/></div>
-        <div class="card-body">
-          <span class="overline">Denkyira</span>
-          <h3>The Denkyira Kingdom</h3>
-          <p>By the 17th century, Denkyira had become the dominant Akan power — controlling access to European trade at the coast and extracting tribute from dozens of smaller states, including the early Asante clans. Its fall to Asante in 1701 transformed the region.</p>
+<!-- 
+      <div class="blockquote" style="margin-top:3rem;">
+        <p>"The king of Ghana can put two hundred thousand warriors in the field, more than forty thousand being armed
+          with bow and arrow."</p>
+        <cite>— Al-Bakri, Arab geographer, writing c. 1068 AD</cite>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- SECTION 2: AKAN KINGDOMS -->
+  <section class="era-section" id="akan" style="background:var(--dark2);">
+    <div class="container">
+      <div class="era-header">
+        <div>
+          <div class="tag tag-empire" style="margin-bottom:1rem;">1200 – 1700</div>
+          <h2>The Akan Kingdoms</h2>
         </div>
+        <p>Long before the Asante Confederacy, the Akan-speaking peoples of the forest zone established a network of
+          sophisticated, independent kingdoms — each with its own traditions, armies, and gold-trading networks that
+          would shape the identity of modern Ghana.</p>
       </div>
-      <div class="card">
-        <div class="card-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Traditional_kente_cloth.jpg/1280px-Traditional_kente_cloth.jpg" alt="Akan traditions"/></div>
-        <div class="card-body">
-          <span class="overline">Akan Traditions</span>
-          <h3>Governance &amp; Spirituality</h3>
-          <p>Akan kingdoms were organised around the matrilineal clan system — inheritance and identity passed through the mother's line. The role of the Ohemaa (Queen Mother) as kingmaker and advisor was constitutionally central to governance.</p>
+
+      <div class="grid-3" style="margin-bottom:3rem;">
+        <div class="card">
+          <div class="card-img"><img
+              src="/imgaes/bono.jpg"
+              alt="Akan kingdom" class="gr"/></div>
+          <div class="card-body">
+            <span class="overline">Bono State</span>
+            <h3>Kingdom of Bono (c. 1400s)</h3>
+            <p>The Bono (or Brong) state was among the earliest Akan kingdoms, centred around modern Techiman. It became
+              a major gold-trading hub and is considered the ancestral state from which many later Akan peoples
+              migrated.</p>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="two-col-text">
-      <p>The Akan peoples shared a common language family, cosmology, and approach to governance that distinguished them from their neighbours. The concept of the Stool — a sacred wooden throne believed to house the spirit of the ancestors and the community — was central to political authority. Destooling a chief was a constitutionally recognised process for holding rulers accountable.</p>
-      <p>Gold was not merely wealth — it was spiritual currency. The Akan developed one of the most sophisticated goldsmithing traditions in the world, producing weights, ornaments, and regalia of exquisite craftsmanship. The gold weights (abrammuo) used to measure gold dust were miniature sculptures — animals, proverbs made physical — that encoded Akan philosophy in metal.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 3: ASANTE -->
-<section class="era-section" id="asante">
-  <div class="container">
-    <div class="era-header">
-      <div>
-        <div class="tag tag-empire" style="margin-bottom:1rem;">1701 – 1902</div>
-        <h2>The Asante Empire</h2>
-      </div>
-      <p>The Asante Confederacy was the most powerful and sophisticated African empire south of the Sahara in the 18th and 19th centuries — a state that fought European colonisers to a standstill for nearly a century.</p>
-    </div>
-
-    <div class="split reverse">
-      <div class="split-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Osei_Kwame_Bonsu_2019.jpg/800px-Osei_Kwame_Bonsu_2019.jpg" alt="Asante chief"/>
-      </div>
-      <div class="split-text">
-        <span class="overline">The Golden Stool</span>
-        <h2>Osei Tutu &amp; the Birth of Asante</h2>
-        <p>In 1701, the warrior-king Osei Tutu I, aided by his spiritual advisor Okomfo Anokye, unified the scattered Akan clans of the Kumasi plateau into a single, powerful confederation. The instrument of unity was the Sika Dwa Kofi — the Golden Stool — said to have descended from heaven into Osei Tutu's lap, embodying the collective soul of the Asante people.</p>
-        <p>Under Osei Tutu and his successors, Asante rapidly expanded through military conquest, diplomatic marriages, and commercial dominance. By the mid-18th century, Asante controlled much of modern Ghana, with tributaries stretching from the coast to the northern savannah. Kumasi, the capital, was a city of 25,000 — a centre of architecture, craft, law, and statecraft that astonished visiting Europeans.</p>
-        <p>The Asante legal system was remarkably sophisticated — courts operated at multiple levels, capital punishment required review, and the rights of commoners against chiefs were legally recognised. The position of Ohemaa (Queen Mother) gave women constitutionally embedded political power in a 17th-century monarchy.</p>
-      </div>
-    </div>
-
-    <figure class="inline-img">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cape_Coast_Castle_-_panoramio.jpg/1280px-Cape_Coast_Castle_-_panoramio.jpg" alt="Cape Coast Castle"/>
-      <figcaption>Cape Coast Castle — one of the largest slave-trading posts on the Gold Coast, now a UNESCO World Heritage Site and memorial to the transatlantic slave trade.</figcaption>
-    </figure>
-
-    <h3 style="font-size:28px; margin-bottom:1.5rem;">The Anglo-Asante Wars (1823–1900)</h3>
-    <div class="two-col-text">
-      <div>
-        <p>As Britain extended its influence along the Gold Coast, it inevitably clashed with the Asante. Between 1823 and 1900, a series of five major wars were fought — and for much of that period, Asante held its own or prevailed outright. The 1824 Battle of Nsamankow saw British commander Sir Charles MacCarthy killed in the field by Asante forces.</p>
-        <p>The Third Anglo-Asante War (1873–74) resulted in the burning of Kumasi — but even this did not end Asante sovereignty. The Confederacy rapidly rebuilt and continued to resist British encroachment.</p>
-      </div>
-      <div>
-        <p>The defining moment came with the War of the Golden Stool in 1900 — sparked when British Governor Frederick Hodgson demanded the Asantehene surrender the Golden Stool for him to sit upon. This extraordinary cultural insult united the Asante in outrage. Yaa Asantewaa, Queen Mother of Ejisu, led the military resistance in the absence of exiled male chiefs.</p>
-        <p>Though Asante was eventually absorbed into the British Gold Coast Colony in 1902, the Golden Stool was never surrendered. It remains in Kumasi to this day — a symbol of Asante identity that no colonial power could break.</p>
-      </div>
-    </div>
-
-    <div class="fact-box" style="margin-top:2rem;">
-      <strong>The Golden Stool Today</strong>
-      <p>The Sika Dwa Kofi (Golden Stool) is never sat upon by anyone — including the Asantehene. It is placed on its own throne beside the king as an equal, representing the soul of the Asante nation. It is brought out only on the most sacred occasions.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 4: COLONIAL ERA -->
-<section class="era-section" id="colonial" style="background:var(--dark2);">
-  <div class="container">
-    <div class="era-header">
-      <div>
-        <div class="tag tag-colonial" style="margin-bottom:1rem;">1471 – 1957</div>
-        <h2>The Colonial Era</h2>
-      </div>
-      <p>For nearly five centuries, the Gold Coast was the site of European ambition, human tragedy, and remarkable African resistance. From the Portuguese arrival in 1471 to the transfer of power in 1957, this era irrevocably shaped Ghana's present.</p>
-    </div>
-
-    <div class="split">
-      <div class="split-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Elmina_Castle.jpg/1280px-Elmina_Castle.jpg" alt="Elmina Castle"/>
-      </div>
-      <div class="split-text">
-        <span class="overline">European Arrival</span>
-        <h2>The Door of No Return</h2>
-        <p>Portuguese explorer Diogo de Azambuja arrived at the Gold Coast in 1471, and by 1482 had built Elmina Castle — the first permanent European structure in sub-Saharan Africa. Initially a trading post for gold, it became — as European demand shifted — a processing centre for enslaved human beings.</p>
-        <p>Over the following three centuries, an estimated 12 million people were transported across the Atlantic from West Africa. The Gold Coast was among the major source regions. Elmina, Cape Coast Castle, and dozens of smaller forts formed a chain of horror along the coastline — warehouses for human beings awaiting the Middle Passage.</p>
-        <p>Britain abolished the slave trade in 1807, but its commercial and demographic wounds persisted for generations — disrupting trade networks, depopulating regions, and introducing firearms and alcohol as destabilising trade goods.</p>
-      </div>
-    </div>
-
-    <div class="blockquote">
-      <p>"Through these very gates passed millions of our ancestors — never to return. We must never forget."</p>
-      <cite>— President Nana Akufo-Addo, Cape Coast Castle, Year of Return, 2019</cite>
-    </div>
-
-    <h3 style="font-size:28px; margin:2.5rem 0 1rem;">British Rule &amp; the Gold Coast Colony</h3>
-    <div class="two-col-text">
-      <p>By 1874, Britain formally declared the coastal Gold Coast a Crown Colony. Following the Asante Wars, the full territory was consolidated under British administration by 1902. Colonial rule brought roads, railways, and schools — but on terms entirely designed to serve British commercial interests, particularly cocoa and gold extraction.</p>
-      <p>The colonial administration was paternalistic and racially hierarchical — a handful of educated Ghanaians could rise to junior administrative positions, but real power lay with the Governor in Accra. This contradiction — educating Africans in Western democratic values while denying those values in practice — would eventually produce the generation that dismantled the system.</p>
-    </div>
-
-    <div class="video-wrapper" style="margin-top:2.5rem; max-width:800px; margin-left:auto; margin-right:auto;">
-      <iframe width="420" height="345" src="https://www.youtube.com/embed/e-Dv1Lbm9GI?rel=0&modestbranding=1"></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 5: INDEPENDENCE -->
-<section class="era-section" id="independence">
-  <div class="container">
-    <div class="era-header">
-      <div>
-        <div class="tag tag-modern" style="margin-bottom:1rem;">1947 – 1957</div>
-        <h2>The Road to Independence</h2>
-      </div>
-      <p>The decade from 1947 to 1957 was one of the most consequential in African history — a period of mass mobilisation, strategic brilliance, and unstoppable popular will that ended colonial rule in the Gold Coast forever.</p>
-    </div>
-
-    <div class="split reverse">
-      <div class="split-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Kwame_Nkrumah_in_the_1960s.jpg/800px-Kwame_Nkrumah_in_the_1960s.jpg" alt="Kwame Nkrumah"/>
-      </div>
-      <div class="split-text">
-        <span class="overline">The Movement</span>
-        <h2>Nkrumah &amp; the CPP</h2>
-        <p>When Kwame Nkrumah returned from 12 years of study in the United States and United Kingdom in 1947, he was a transformed figure — immersed in Marcus Garvey's pan-Africanism, C.L.R. James's socialism, and the American civil rights tradition. He joined the United Gold Coast Convention (UGCC) but quickly found its elite, conservative leadership too timid for the moment.</p>
-        <p>In 1949, Nkrumah founded the Convention People's Party (CPP) with the electrifying slogan "Self-Government Now." The party mobilised workers, market women, veterans, students, and rural farmers into a mass movement of unprecedented scale. "Positive Action" — strikes, civil disobedience, boycotts — became the strategy.</p>
-        <p>In 1950, Nkrumah was imprisoned by the British. But from prison, his CPP swept the 1951 legislative elections. The colonial government had no choice — they released him and invited him to form a government. It was a strategy of non-violent pressure that echoed Gandhi and prefigured Mandela.</p>
-      </div>
-    </div>
-
-    <div class="fact-box">
-      <strong>6 March 1957 — Independence Day</strong>
-      <p>At midnight on 5–6 March 1957, the Union Jack was lowered in Accra's Old Polo Ground as the new Ghanaian flag rose in its place. Nkrumah declared: "Ghana, your beloved country, is free forever." The crowd of 100,000 people erupted in celebration heard across the continent.</p>
-    </div>
-
-    <div class="video-wrapper" style="margin-top:2.5rem; max-width:800px; margin-left:auto; margin-right:auto;">
-      <iframe width="420" height="345" src="https://www.youtube.com/embed/fSKtOaHH2cM?rel=0&modestbranding=1"></iframe>
-    </div>
-
-    <div class="blockquote" style="margin-top:3rem;">
-      <p>"We have awakened. We will not sleep anymore. Today, from now on, there is a new African in the world!"</p>
-      <cite>— Kwame Nkrumah, Independence Declaration, 6 March 1957</cite>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 6: THE REPUBLIC -->
-<section class="era-section" id="republic" style="background:var(--dark2);">
-  <div class="container">
-    <div class="era-header">
-      <div>
-        <div class="tag tag-modern" style="margin-bottom:1rem;">1957 – Present</div>
-        <h2>The Republic of Ghana</h2>
-      </div>
-      <p>Ghana's post-independence journey has been complex — moving through periods of civilian rule, military coups, and economic turbulence to emerge as one of Africa's most celebrated democracies.</p>
-    </div>
-
-    <!-- TIMELINE -->
-    <div class="timeline">
-      <div class="tl-item" data-reveal>
-        <div class="tl-content">
-          <div class="era">1957 – 1966</div>
-          <div class="tag tag-modern">First Republic</div>
-          <h3>Nkrumah's Vision</h3>
-          <p>Ghana became a republic in 1960 with Nkrumah as president. He launched ambitious infrastructure projects — the Akosombo Dam, Tema Harbour, university expansion — while pursuing pan-African continental unity. However, increasing authoritarianism and a deteriorating economy eroded popular support. A military coup in February 1966, while Nkrumah was abroad, ended his rule.</p>
+        <div class="card">
+          <div class="card-img"><img
+              src="/imgaes/Denkyira-from-1660-1700-by-Tom-McCaskie-Image-first-published-in-McCaskie-2007-5.ppm"
+              alt="Denkyira" /></div>
+          <div class="card-body">
+            <span class="overline">Denkyira</span>
+            <h3>The Denkyira Kingdom</h3>
+            <p>By the 17th century, Denkyira had become the dominant Akan power — controlling access to European trade
+              at the coast and extracting tribute from dozens of smaller states, including the early Asante clans. Its
+              fall to Asante in 1701 transformed the region.</p>
+          </div>
         </div>
-        <div class="tl-dot"><div class="dot"></div></div>
-        <div class="tl-empty"></div>
-      </div>
-
-      <div class="tl-item" data-reveal>
-        <div class="tl-empty"></div>
-        <div class="tl-dot"><div class="dot"></div></div>
-        <div class="tl-content">
-          <div class="era">1966 – 1979</div>
-          <div class="tag tag-colonial">Military Era</div>
-          <h3>Instability &amp; Transition</h3>
-          <p>A cycle of military and civilian governments followed — the National Liberation Council (1966–69), Kofi Busia's civilian government (1969–72), I.K. Acheampong's military rule (1972–78). Economic mismanagement, corruption, and inflation plagued the country. In June 1979, Flight Lieutenant Jerry Rawlings led a brief military uprising, executed three former heads of state for corruption, then handed power to civilian president Hilla Limann.</p>
+        <div class="card">
+          <div class="card-img"><img
+              src="/imgaes/traditional images.jpg"
+              alt="Akan traditions" /></div>
+          <div class="card-body">
+            <span class="overline">Akan Traditions</span>
+            <h3>Governance &amp; Spirituality</h3>
+            <p>Akan kingdoms were organised around the matrilineal clan system — inheritance and identity passed through
+              the mother's line. The role of the Ohemaa (Queen Mother) as kingmaker and advisor was constitutionally
+              central to governance.</p>
+          </div>
         </div>
       </div>
 
-      <div class="tl-item" data-reveal>
-        <div class="tl-content">
-          <div class="era">1981 – 1992</div>
-          <div class="tag tag-colonial">PNDC</div>
-          <h3>Rawlings Returns</h3>
-          <p>On 31 December 1981, Rawlings staged a second coup, establishing the Provisional National Defence Council (PNDC). This period was harsh — critics were silenced, press freedom curtailed — but it also saw significant economic reform under IMF structural adjustment programmes. By the late 1980s, pressure for democracy was building across Africa.</p>
+      <div style="display:flex; justify-content:flex-start; margin-top:2rem;">
+        <a href="akan-kingdoms.html" class="btn btn-gold">Learn More  ↗</a>
+      </div>
+
+      <!-- <div class="two-col-text">
+        <p>The Akan peoples shared a common language family, cosmology, and approach to governance that distinguished
+          them from their neighbours. The concept of the Stool — a sacred wooden throne believed to house the spirit of
+          the ancestors and the community — was central to political authority. Destooling a chief was a
+          constitutionally recognised process for holding rulers accountable.</p>
+        <p>Gold was not merely wealth — it was spiritual currency. The Akan developed one of the most sophisticated
+          goldsmithing traditions in the world, producing weights, ornaments, and regalia of exquisite craftsmanship.
+          The gold weights (abrammuo) used to measure gold dust were miniature sculptures — animals, proverbs made
+          physical — that encoded Akan philosophy in metal.</p>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- SECTION 3: ASANTE -->
+  <section class="era-section" id="asante">
+    <div class="container">
+      <div class="era-header">
+        <div>
+          <div class="tag tag-empire" style="margin-bottom:1rem;">1701 – 1902</div>
+          <h2>The Asante Empire</h2>
         </div>
-        <div class="tl-dot"><div class="dot"></div></div>
-        <div class="tl-empty"></div>
+        <p>The Asante Confederacy was the most powerful and sophisticated African empire south of the Sahara in the 18th
+          and 19th centuries — a state that fought European colonisers to a standstill for nearly a century.</p>
       </div>
 
-      <div class="tl-item" data-reveal>
-        <div class="tl-empty"></div>
-        <div class="tl-dot"><div class="dot"></div></div>
-        <div class="tl-content">
-          <div class="era">1992 – Present</div>
-          <div class="tag tag-modern">Fourth Republic</div>
-          <h3>Democracy Consolidated</h3>
-          <p>Ghana's 1992 constitution ushered in the Fourth Republic. Rawlings won two democratic elections (1992, 1996) as civilian president. Since 2000, Ghana has demonstrated textbook democratic transitions — John Kufuor's NPP defeated Rawlings's NDC in 2000; John Mahama's NDC then defeated NPP in 2012; Akufo-Addo's NPP won in 2016 and 2020. The 2008 election was decided by a margin of just 40,000 votes out of 9 million cast — a recount accepted peacefully by all parties.</p>
+      <div class="split reverse">
+        <div class="split-img">
+          <img
+            src="/imgaes/images.webp"
+            alt="Asante chief" />
+        </div>
+        <div class="split-text">
+          <span class="overline">The Golden Stool</span>
+          <h2>Osei Tutu &amp; the Birth of Asante</h2>
+          <p>In 1701, the warrior-king Osei Tutu I, aided by his spiritual advisor Okomfo Anokye, unified the scattered
+            Akan clans of the Kumasi plateau into a single, powerful confederation. The instrument of unity was the Sika
+            Dwa Kofi — the Golden Stool — said to have descended from heaven into Osei Tutu's lap, embodying the
+            collective soul of the Asante people.</p>
+          <p>Under Osei Tutu and his successors, Asante rapidly expanded through military conquest, diplomatic
+            marriages, and commercial dominance. By the mid-18th century, Asante controlled much of modern Ghana, with
+            tributaries stretching from the coast to the northern savannah. Kumasi, the capital, was a city of 25,000 —
+            a centre of architecture, craft, law, and statecraft that astonished visiting Europeans.</p>
+          <!-- <p>The Asante legal system was remarkably sophisticated — courts operated at multiple levels, capital
+            punishment required review, and the rights of commoners against chiefs were legally recognised. The position
+            of Ohemaa (Queen Mother) gave women constitutionally embedded political power in a 17th-century monarchy.
+          </p> -->
+          <a href="asante-empire.html" class="btn btn-gold" style="margin-top:1.5rem;">Read More ↗</a>
+        </div>
+      </div>
+
+      <figure class="inline-img">
+        <img
+          src="/imgaes/gettyimages-457229346-612x612.jpg"
+          alt="Historical image from Asante era" />
+        <figcaption>A pivotal moment in Asante history during the colonial period.</figcaption>
+      </figure>
+
+      <h3 style="font-size:28px; margin-bottom:1.5rem;">The Anglo-Asante Wars (1823–1900)</h3>
+      <div class="two-col-text">
+        <div>
+          <p>As Britain extended its influence along the Gold Coast, it inevitably clashed with the Asante. Between 1823
+            and 1900, a series of five major wars were fought — and for much of that period, Asante held its own or
+            prevailed outright. The 1824 Battle of Nsamankow saw British commander Sir Charles MacCarthy killed in the
+            field by Asante forces.</p>
+          <p>The Third Anglo-Asante War (1873–74) resulted in the burning of Kumasi — but even this did not end Asante
+            sovereignty. The Confederacy rapidly rebuilt and continued to resist British encroachment.</p>
+        </div>
+        <div>
+          <p>The defining moment came with the War of the Golden Stool in 1900 — sparked when British Governor Frederick
+            Hodgson demanded the Asantehene surrender the Golden Stool for him to sit upon. This extraordinary cultural
+            insult united the Asante in outrage. Yaa Asantewaa, Queen Mother of Ejisu, led the military resistance in
+            the absence of exiled male chiefs.</p>
+          <!-- <p>Though Asante was eventually absorbed into the British Gold Coast Colony in 1902, the Golden Stool was
+            never surrendered. It remains in Kumasi to this day — a symbol of Asante identity that no colonial power
+            could break.</p> -->
+        </div>
+      </div>
+
+      <!-- <div class="fact-box" style="margin-top:2rem;">
+        <strong>The Golden Stool Today</strong>
+        <p>The Sika Dwa Kofi (Golden Stool) is never sat upon by anyone — including the Asantehene. It is placed on its
+          own throne beside the king as an equal, representing the soul of the Asante nation. It is brought out only on
+          the most sacred occasions.</p>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- SECTION 4: COLONIAL ERA -->
+  <section class="era-section" id="colonial" style="background:var(--dark2);">
+    <div class="container">
+      <div class="era-header">
+        <div>
+          <div class="tag tag-colonial" style="margin-bottom:1rem;">1471 – 1957</div>
+          <h2>The Colonial Era</h2>
+        </div>
+        <p>For nearly five centuries, the Gold Coast was the site of European ambition, human tragedy, and remarkable
+          African resistance. From the Portuguese arrival in 1471 to the transfer of power in 1957, this era irrevocably
+          shaped Ghana's present.</p>
+      </div>
+
+      <div class="split">
+        <div class="split-img">
+          <img
+            src="/imgaes/door of no return.jpg"
+            alt="Elmina Castle" />
+        </div>
+        <div class="split-text">
+          <span class="overline">European Arrival</span>
+          <h2>The Door of No Return</h2>
+          <p>Portuguese explorer Diogo de Azambuja arrived at the Gold Coast in 1471, and by 1482 had built Elmina
+            Castle — the first permanent European structure in sub-Saharan Africa. Initially a trading post for gold, it
+            became — as European demand shifted — a processing centre for enslaved human beings.</p>
+          <p>Over the following three centuries, an estimated 12 million people were transported across the Atlantic
+            from West Africa. The Gold Coast was among the major source regions. Elmina, Cape Coast Castle, and dozens
+            of smaller forts formed a chain of horror along the coastline — warehouses for human beings awaiting the
+            Middle Passage.</p>
+          <!-- <p>Britain abolished the slave trade in 1807, but its commercial and demographic wounds persisted for
+            generations — disrupting trade networks, depopulating regions, and introducing firearms and alcohol as
+            destabilising trade goods.</p> -->
+          <a href="colonial-era.html" class="btn btn-gold" style="margin-top:1.5rem;">Read More ↗</a>
+        </div>
+      </div>
+
+      <!-- <div class="blockquote">
+        <p>"Through these very gates passed millions of our ancestors — never to return. We must never forget."</p>
+        <cite>— President Nana Akufo-Addo, Cape Coast Castle, Year of Return, 2019</cite>
+      </div> -->
+
+      <h3 style="font-size:28px; margin:2.5rem 0 1rem;">British Rule &amp; the Gold Coast Colony</h3>
+      <div class="two-col-text">
+        <p>By 1874, Britain formally declared the coastal Gold Coast a Crown Colony. Following the Asante Wars, the full
+          territory was consolidated under British administration by 1902. Colonial rule brought roads, railways, and
+          schools — but on terms entirely designed to serve British commercial interests, particularly cocoa and gold
+          extraction.</p>
+        <p>The colonial administration was paternalistic and racially hierarchical — a handful of educated Ghanaians
+          could rise to junior administrative positions, but real power lay with the Governor in Accra. This
+          contradiction — educating Africans in Western democratic values while denying those values in practice — would
+          eventually produce the generation that dismantled the system.</p>
+      </div>
+
+      <div class="video-wrapper" style="margin-top:2.5rem; max-width:100%; margin-left:auto; margin-right:auto;">
+        <iframe width="420" height="345"
+          src="https://www.youtube.com/embed/e-Dv1Lbm9GI?rel=0&modestbranding=1"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: INDEPENDENCE -->
+  <section class="era-section" id="independence">
+    <div class="container">
+      <div class="era-header">
+        <div>
+          <div class="tag tag-modern" style="margin-bottom:1rem;">1947 – 1957</div>
+          <h2>The Road to Independence</h2>
+        </div>
+        <p>The decade from 1947 to 1957 was one of the most consequential in African history — a period of mass
+          mobilisation, strategic brilliance, and unstoppable popular will that ended colonial rule in the Gold Coast
+          forever.</p>
+      </div>
+
+      <div class="split reverse">
+        <div class="split-img">
+          <img
+            src="/imgaes/cpp.png"
+            alt="Kwame Nkrumah" />
+        </div>
+        <div class="split-text">
+          <span class="overline">The Movement</span>
+          <h2>Nkrumah &amp; the CPP</h2>
+          <p>When Kwame Nkrumah returned from 12 years of study in the United States and United Kingdom in 1947, he was
+            a transformed figure — immersed in Marcus Garvey's pan-Africanism, C.L.R. James's socialism, and the
+            American civil rights tradition. He joined the United Gold Coast Convention (UGCC) but quickly found its
+            elite, conservative leadership too timid for the moment.</p>
+          <p>In 1949, Nkrumah founded the Convention People's Party (CPP) with the electrifying slogan "Self-Government
+            Now." The party mobilised workers, market women, veterans, students, and rural farmers into a mass movement
+            of unprecedented scale. "Positive Action" — strikes, civil disobedience, boycotts — became the strategy.</p>
+          <!-- <p>In 1950, Nkrumah was imprisoned by the British. But from prison, his CPP swept the 1951 legislative
+            elections. The colonial government had no choice — they released him and invited him to form a government.
+            It was a strategy of non-violent pressure that echoed Gandhi and prefigured Mandela.</p> -->
+          <a href="independence.html" class="btn btn-gold" style="margin-top:1.5rem;">Read More ↗</a>
+        </div>
+      </div>
+
+      <!-- <div class="fact-box">
+        <strong>6 March 1957 — Independence Day</strong>
+        <p>At midnight on 5–6 March 1957, the Union Jack was lowered in Accra's Old Polo Ground as the new Ghanaian flag
+          rose in its place. Nkrumah declared: "Ghana, your beloved country, is free forever." The crowd of 100,000
+          people erupted in celebration heard across the continent.</p>
+      </div> -->
+
+      <div class="video-wrapper" style="margin-top:2.5rem; max-width:100%; margin-left:auto; margin-right:auto;">
+        <iframe width="420" height="345"
+          src="https://www.youtube.com/embed/fSKtOaHH2cM?rel=0&modestbranding=1"></iframe>
+      </div>
+
+      <div class="blockquote" style="margin-top:3rem;">
+        <p>"We have awakened. We will not sleep anymore. Today, from now on, there is a new African in the world!"</p>
+        <cite>— Kwame Nkrumah, Independence Declaration, 6 March 1957</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: THE REPUBLIC -->
+  <!--
+  <section class="era-section" id="republic" style="background:var(--dark2);">
+    <div class="container">
+      <div class="era-header">
+        <div>
+          <div class="tag tag-modern" style="margin-bottom:1rem;">1957 – Present</div>
+          <h2>The Republic of Ghana</h2>
+        </div>
+        <p>Ghana's post-independence journey has been complex — moving through periods of civilian rule, military coups,
+          and economic turbulence to emerge as one of Africa's most celebrated democracies.</p>
+      </div>
+
+      <!-- TIMELINE -->
+      <!-- <div class="timeline">
+        <div class="tl-item" data-reveal>
+          <div class="tl-content">
+            <div class="era">1957 – 1966</div>
+            <div class="tag tag-modern">First Republic</div>
+            <h3>Nkrumah's Vision</h3>
+            <p>Ghana became a republic in 1960 with Nkrumah as president. He launched ambitious infrastructure projects
+              — the Akosombo Dam, Tema Harbour, university expansion — while pursuing pan-African continental unity.
+              However, increasing authoritarianism and a deteriorating economy eroded popular support. A military coup
+              in February 1966, while Nkrumah was abroad, ended his rule.</p>
+          </div>
+          <div class="tl-dot">
+            <div class="dot"></div>
+          </div>
+          <div class="tl-empty"></div>
+        </div> -->
+
+        <!-- <div class="tl-item" data-reveal>
+          <div class="tl-empty"></div>
+          <div class="tl-dot">
+            <div class="dot"></div>
+          </div>
+          <div class="tl-content">
+            <div class="era">1966 – 1979</div>
+            <div class="tag tag-colonial">Military Era</div>
+            <h3>Instability &amp; Transition</h3>
+            <p>A cycle of military and civilian governments followed — the National Liberation Council (1966–69), Kofi
+              Busia's civilian government (1969–72), I.K. Acheampong's military rule (1972–78). Economic mismanagement,
+              corruption, and inflation plagued the country. In June 1979, Flight Lieutenant Jerry Rawlings led a brief
+              military uprising, executed three former heads of state for corruption, then handed power to civilian
+              president Hilla Limann.</p>
+          </div>
+        </div> -->
+<!-- 
+        <div class="tl-item" data-reveal>
+          <div class="tl-content">
+            <div class="era">1981 – 1992</div>
+            <div class="tag tag-colonial">PNDC</div>
+            <h3>Rawlings Returns</h3>
+            <p>On 31 December 1981, Rawlings staged a second coup, establishing the Provisional National Defence Council
+              (PNDC). This period was harsh — critics were silenced, press freedom curtailed — but it also saw
+              significant economic reform under IMF structural adjustment programmes. By the late 1980s, pressure for
+              democracy was building across Africa.</p>
+          </div>
+          <div class="tl-dot">
+            <div class="dot"></div>
+          </div>
+          <div class="tl-empty"></div>
+        </div>
+
+        <div class="tl-item" data-reveal>
+          <div class="tl-empty"></div>
+          <div class="tl-dot">
+            <div class="dot"></div>
+          </div>
+          <div class="tl-content">
+            <div class="era">1992 – Present</div>
+            <div class="tag tag-modern">Fourth Republic</div>
+            <h3>Democracy Consolidated</h3>
+            <p>Ghana's 1992 constitution ushered in the Fourth Republic. Rawlings won two democratic elections (1992,
+              1996) as civilian president. Since 2000, Ghana has demonstrated textbook democratic transitions — John
+              Kufuor's NPP defeated Rawlings's NDC in 2000; John Mahama's NDC then defeated NPP in 2012; Akufo-Addo's
+              NPP won in 2016 and 2020. The 2008 election was decided by a margin of just 40,000 votes out of 9 million
+              cast — a recount accepted peacefully by all parties.</p>
+          </div>
+        </div> -->
+      <!-- </div> -->
+
+      <!-- <div class="stat-strip" style="margin-top:4rem;" data-reveal>
+        <div class="stat-item">
+          <div class="val">7</div>
+          <div class="lbl">Peaceful elections since 1992</div>
+        </div>
+        <div class="stat-item">
+          <div class="val">6</div>
+          <div class="lbl">Power transfers between parties</div>
+        </div>
+        <div class="stat-item">
+          <div class="val">2007</div>
+          <div class="lbl">Oil discovered offshore</div>
+        </div>
+        <div class="stat-item">
+          <div class="val">#1</div>
+          <div class="lbl">Press freedom in West Africa</div>
         </div>
       </div>
     </div>
+  </section> -->
 
-    <div class="stat-strip" style="margin-top:4rem;" data-reveal>
-      <div class="stat-item"><div class="val">7</div><div class="lbl">Peaceful elections since 1992</div></div>
-      <div class="stat-item"><div class="val">6</div><div class="lbl">Power transfers between parties</div></div>
-      <div class="stat-item"><div class="val">2007</div><div class="lbl">Oil discovered offshore</div></div>
-      <div class="stat-item"><div class="val">#1</div><div class="lbl">Press freedom in West Africa</div></div>
-    </div>
-  </div>
-</section>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="nav-logo">
-          <div class="flag-bar"><span></span><span></span><span></span></div>
-          <div class="logo-text">Ghana<span>Our History &amp; Journey</span></div>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="flag-bar"><span></span><span></span><span></span></div>
+            <div class="logo-text">Ghana<span>Our History &amp; Journey</span></div>
+          </div>
+          <p>A comprehensive digital archive celebrating Ghana's rich history, culture, heroes, and journey.</p>
         </div>
-        <p>A comprehensive digital archive celebrating Ghana's rich history, culture, heroes, and journey.</p>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a><a href="history.html">History</a>
+          <a href="culture.html">Culture</a><a href="heroes.html">Heroes</a>
+          <a href="gallery.html">Gallery</a><a href="journey.html">Our Journey</a>
+        </div>
+        <div class="footer-col">
+          <h4>Eras</h4>
+          <a href="#empires">Ancient Empire</a><a href="#akan">Akan Kingdoms</a>
+          <a href="#asante">Asante</a><a href="#colonial">Colonial</a>
+          <a href="#independence">Independence</a><a href="#republic">Republic</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="#">Twitter / X</a><a href="#">Instagram</a>
+          <a href="#">YouTube</a><a href="#">Facebook</a>
+        </div>
       </div>
-      <div class="footer-col"><h4>Pages</h4>
-        <a href="index.html">Home</a><a href="history.html">History</a>
-        <a href="culture.html">Culture</a><a href="heroes.html">Heroes</a>
-        <a href="gallery.html">Gallery</a><a href="journey.html">Our Journey</a>
-      </div>
-      <div class="footer-col"><h4>Eras</h4>
-        <a href="#empires">Ancient Empire</a><a href="#akan">Akan Kingdoms</a>
-        <a href="#asante">Asante</a><a href="#colonial">Colonial</a>
-        <a href="#independence">Independence</a><a href="#republic">Republic</a>
-      </div>
-      <div class="footer-col"><h4>Connect</h4>
-        <a href="#">Twitter / X</a><a href="#">Instagram</a>
-        <a href="#">YouTube</a><a href="#">Facebook</a>
+      <div class="footer-bottom">
+        <span>© 2025 Ghana: Our History &amp; Our Journey.</span>
+        <div class="tricolour">
+          <span style="background:var(--red);"></span>
+          <span style="background:var(--gold2);"></span>
+          <span style="background:var(--green);"></span>
+          <span style="margin-left:6px;">Freedom &amp; Justice</span>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 Ghana: Our History &amp; Our Journey.</span>
-      <div class="tricolour">
-        <span style="background:var(--red);"></span>
-        <span style="background:var(--gold2);"></span>
-        <span style="background:var(--green);"></span>
-        <span style="margin-left:6px;">Freedom &amp; Justice</span>
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<script src="main.js"></script>
+  <script src="main.js"></script>
 </body>
+
 </html>
