@@ -3,20 +3,328 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Asante Empire — Our History &amp; Our Journey</title>
+  <title>Asante Empire — Our History & Our Journey</title>
   <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
-    .related-sections {
-      display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem;
+    :root {
+      --gold: #FFD700;
+      --dark: #0d0d0d;
+      --dark2: #1a1a1a;
+      --text: #f5f5f5;
+      --text-muted: rgba(255,255,255,0.6);
+      --border: rgba(255,255,255,0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Source Sans 3', sans-serif;
+      line-height: 1.7;
+    }
+    .hero-modern {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: linear-gradient(135deg, rgba(13,13,13,0.95) 0%, rgba(26,26,26,0.9) 100%);
+      overflow: hidden;
+    }
+    .hero-modern::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('imgaes/traditional images.jpg') center/cover;
+      opacity: 0.25;
+    }
+    .hero-modern::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to bottom, rgba(13,13,13,0.7) 0%, transparent 50%, rgba(13,13,13,1) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 4rem 2rem;
+      margin-left: 15%;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 8px 20px;
+      border-radius: 30px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+    .section {
+      padding: 5rem 2rem;
+      background: var(--dark);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .grid-2.reverse { direction: rtl; }
+    .grid-2.reverse > * { direction: ltr; }
+    .img-wrapper {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .img-wrapper img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .img-wrapper:hover img { transform: scale(1.05); }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+    .section-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(255,215,0,0.05) 100%);
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .highlight-box strong {
+      color: var(--gold);
+      font-size: 14px;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .highlight-box p {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .quote-block {
+      background: var(--dark2);
+      padding: 4rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-style: italic;
+      color: #fff;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+    .quote-cite {
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
     }
     .related-card {
-      background: rgba(212,160,23,0.07); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.5rem; text-align: center;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+    .related-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+      background: rgba(255,215,0,0.05);
+    }
+    .related-card .tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .related-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .related-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .related-card a {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    @media (max-width: 968px) {
+      .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
+      .grid-2.reverse { direction: ltr; }
+      .related-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .hero-modern { min-height: 50vh; }
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+    .stat-cell {
+      background: var(--dark2);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 4rem 0;
+    }
+    .card {
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
       transition: all 0.3s;
     }
-    .related-card:hover { background: rgba(212,160,23,0.12); transform: translateY(-4px); }
-    .related-card a { color: var(--gold); font-weight: 600; }
-    @media(max-width:768px){ .related-sections { grid-template-columns: repeat(2,1fr); } }
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+    }
+    .card-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .card:hover .card-img img { transform: scale(1.05); }
+    .card-content {
+      padding: 1.5rem;
+    }
+    .card-content .overline {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .card-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .card-content p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+    .figure-img {
+      margin: 3rem 0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .figure-img img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    .figure-img figcaption {
+      background: var(--dark2);
+      padding: 1rem 1.5rem;
+      font-size: 14px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
   </style>
 </head>
 <body>
@@ -24,7 +332,7 @@
 <nav>
   <a href="index.html" class="nav-logo">
     <div class="flag-bar"><span></span><span></span><span></span></div>
-    <div class="logo-text">Ghana<span>Our History &amp; Journey</span></div>
+    <div class="logo-text">Ghana<span>Our History &amp; Our Journey</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -65,124 +373,185 @@
   <a href="journey.html">Our Journey</a>
 </div>
 
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div class="bg" style="background-image: url('/imgaes/empire.jpg');"></div>
-  <div class="container">
-    <div class="kente-rule"><span></span><span></span><span></span><span></span><span></span></div>
-    <span class="overline fade-in delay-1">1701 – 1902</span>
-    <h1 class="fade-up delay-2">The Asante<br>Empire</h1>
-    <p class="sub fade-up delay-3">The most powerful African empire south of the Sahara in the 18th and 19th centuries.</p>
+<!-- HERO -->
+<div class="hero-modern">
+  <div class="hero-content">
+    <div class="hero-tag">1701 – 1902 AD</div>
+    <h1 class="hero-title">The Asante<br>Empire</h1>
+    <p class="hero-subtitle">The most powerful African empire south of the Sahara in the 18th and 19th centuries — a state that fought European colonisers to a standstill.</p>
   </div>
 </div>
 
 <!-- CONTENT -->
-<section class="era-section">
+<section class="section">
   <div class="container">
-    <div class="era-header">
+    
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-cell">
+        <div class="stat-value">1701</div>
+        <div class="stat-label">Empire Founded</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-value">25K</div>
+        <div class="stat-label">Kumasi Population</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Anglo-Asante Wars</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-value">1902</div>
+        <div class="stat-label">British Annexation</div>
+      </div>
+    </div>
+
+    <!-- CONTENT 1 -->
+    <div class="grid-2 reverse">
+      <div class="img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Osei_Kwame_Bonsu_2019.jpg/800px-Osei_Kwame_Bonsu_2019.jpg" alt="Asante Chief"/>
+      </div>
       <div>
-        <div class="tag tag-empire" style="margin-bottom:1rem;">1701 – 1902</div>
-        <h2>The Asante Empire</h2>
-      </div>
-      <p>The Asante Confederacy was the most powerful and sophisticated African empire south of the Sahara in the 18th and 19th centuries — a state that fought European colonisers to a standstill for nearly a century.</p>
-    </div>
-
-    <div class="split reverse">
-      <div class="split-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Osei_Kwame_Bonsu_2019.jpg/800px-Osei_Kwame_Bonsu_2019.jpg" alt="Asante chief"/>
-      </div>
-      <div class="split-text">
-        <span class="overline">The Golden Stool</span>
-        <h2>Osei Tutu &amp; the Birth of Asante</h2>
-        <p>In 1701, the warrior-king Osei Tutu I, aided by his spiritual advisor Okomfo Anokye, unified the scattered Akan clans of the Kumasi plateau into a single, powerful confederation. The instrument of unity was the Sika Dwa Kofi — the Golden Stool — said to have descended from heaven into Osei Tutu's lap, embodying the collective soul of the Asante people.</p>
-        <p>Under Osei Tutu and his successors, Asante rapidly expanded through military conquest, diplomatic marriages, and commercial dominance. By the mid-18th century, Asante controlled much of modern Ghana, with tributaries stretching from the coast to the northern savannah. Kumasi, the capital, was a city of 25,000 — a centre of architecture, craft, law, and statecraft that astonished visiting Europeans.</p>
-        <p>The Asante legal system was remarkably sophisticated — courts operated at multiple levels, capital punishment required review, and the rights of commoners against chiefs were legally recognised. The position of Ohemaa (Queen Mother) gave women constitutionally embedded political power in a 17th-century monarchy.</p>
+        <span class="section-label">The Golden Stool</span>
+        <h2 class="section-title">Osei Tutu & the Birth of Asante</h2>
+        <p class="section-text">In 1701, the warrior-king Osei Tutu I, aided by his spiritual advisor Okomfo Anokye, unified the scattered Akan clans of the Kumasi plateau into a single, powerful confederation.</p>
+        <p class="section-text">The instrument of unity was the Sika Dwa Kofi — the Golden Stool — said to have descended from heaven into Osei Tutu's lap, embodying the collective soul of the Asante people.</p>
+        <div class="highlight-box">
+          <strong>The Golden Stool Today</strong>
+          <p>The Sika Dwa Kofi is never sat upon by anyone — including the Asantehene. It is placed on its own throne beside the king as an equal, representing the soul of the Asante nation.</p>
+        </div>
       </div>
     </div>
 
-    <figure class="inline-img">
+    <!-- IMAGE FIGURE -->
+    <figure class="figure-img">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cape_Coast_Castle_-_panoramio.jpg/1280px-Cape_Coast_Castle_-_panoramio.jpg" alt="Cape Coast Castle"/>
-      <figcaption>Cape Coast Castle — one of the largest slave-trading posts on the Gold Coast, now a UNESCO World Heritage Site and memorial to the transatlantic slave trade.</figcaption>
+      <figcaption>Cape Coast Castle — one of the largest slave-trading posts on the Gold Coast, now a UNESCO World Heritage Site.</figcaption>
     </figure>
 
-    <h3 style="font-size:28px; margin-bottom:1.5rem;">The Anglo-Asante Wars (1823–1900)</h3>
-    <div class="two-col-text">
-      <div>
-        <p>As Britain extended its influence along the Gold Coast, it inevitably clashed with the Asante. Between 1823 and 1900, a series of five major wars were fought — and for much of that period, Asante held its own or prevailed outright. The 1824 Battle of Nsamankow saw British commander Sir Charles MacCarthy killed in the field by Asante forces.</p>
-        <p>The Third Anglo-Asante War (1873–74) resulted in the burning of Kumasi — but even this did not end Asante sovereignty. The Confederacy rapidly rebuilt and continued to resist British encroachment.</p>
+    <!-- CARDS -->
+    <h2 class="section-title" style="margin-bottom: 1rem;">The Anglo-Asante Wars</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Traditional_kente_cloth.jpg/1280px-Traditional_kente_cloth.jpg" alt="First War"/>
+        </div>
+        <div class="card-content">
+          <span class="overline">First War (1823-26)</span>
+          <h3>Battle of Nsamankow</h3>
+          <p>British commander Sir Charles MacCarthy was killed in the field by Asante forces. This early victory established Asante military dominance.</p>
+        </div>
       </div>
-      <div>
-        <p>The defining moment came with the War of the Golden Stool in 1900 — sparked when British Governor Frederick Hodgson demanded the Asantehene surrender the Golden Stool for him to sit upon. This extraordinary cultural insult united the Asante in outrage. Yaa Asantewaa, Queen Mother of Ejisu, led the military resistance in the absence of exiled male chiefs.</p>
-        <p>Though Asante was eventually absorbed into the British Gold Coast Colony in 1902, the Golden Stool was never surrendered. It remains in Kumasi to this day — a symbol of Asante identity that no colonial power could break.</p>
+      <div class="card">
+        <div class="card-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Elmina_Castle.jpg/1280px-Elmina_Castle.jpg" alt="Third War"/>
+        </div>
+        <div class="card-content">
+          <span class="overline">Third War (1873-74)</span>
+          <h3>Burning of Kumasi</h3>
+          <p>Despite British forces burning Kumasi, the Confederacy rapidly rebuilt and continued to resist British encroachment.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Kwame_Nkrumah_in_the_1960s.jpg/800px-Kwame_Nkrumah_in_the_1960s.jpg" alt="War of Golden Stool"/>
+        </div>
+        <div class="card-content">
+          <span class="overline">War of the Golden Stool (1900)</span>
+          <h3>Yaa Asantewaa's Resistance</h3>
+          <p>When Governor Hodgson demanded the Golden Stool, Yaa Asantewaa led the military resistance in the absence of exiled male chiefs.</p>
+        </div>
       </div>
     </div>
 
-    <div class="fact-box" style="margin-top:2rem;">
-      <strong>The Golden Stool Today</strong>
-      <p>The Sika Dwa Kofi (Golden Stool) is never sat upon by anyone — including the Asantehene. It is placed on its own throne beside the king as an equal, representing the soul of the Asante nation. It is brought out only on the most sacred occasions.</p>
+    <!-- CONTENT 2 -->
+    <div class="grid-2" style="margin-top: 3rem;">
+      <div class="img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Osei_Kwame_Bonsu_2019.jpg/800px-Osei_Kwame_Bonsu_2019.jpg" alt="Asante Governance"/>
+      </div>
+      <div>
+        <span class="section-label">Legacy</span>
+        <h2 class="section-title">A Sophisticated State</h2>
+        <p class="section-text">Kumasi was a city of 25,000 — a centre of architecture, craft, law, and statecraft that astonished visiting Europeans.</p>
+        <p class="section-text">The Asante legal system was remarkably sophisticated — courts operated at multiple levels, capital punishment required review, and the rights of commoners against chiefs were legally recognised.</p>
+        <p class="section-text">Though Asante was absorbed into the British Gold Coast Colony in 1902, the Golden Stool was never surrendered. It remains in Kumasi to this day.</p>
+      </div>
     </div>
+
   </div>
 </section>
 
-<!-- RELATED SECTIONS -->
-<section class="era-section" style="background:var(--dark2);">
+<!-- QUOTE -->
+<div class="quote-block">
+  <p class="quote-text">"The Golden Stool is not a throne — it is the soul of the Asante nation. Without it, there is no Asante."</p>
+  <cite class="quote-cite">— Traditional Asante Proverb</cite>
+</div>
+
+<!-- RELATED -->
+<section class="section" style="background: var(--dark2);">
   <div class="container">
-    <div class="era-header">
-      <h2>Continue Your Journey</h2>
-    </div>
-    <div class="related-sections">
-      <div class="related-card">
-        <div class="tag tag-empire" style="margin-bottom:0.5rem; display:inline-block;">300–1076</div>
-        <h3 style="margin:0.5rem 0;">Ancient Empires</h3>
-        <p style="font-size:13px; margin:0.5rem 0;">The Ghana Empire</p>
-        <a href="ancient-empires.html">Learn More →</a>
-      </div>
-      <div class="related-card">
-        <div class="tag tag-empire" style="margin-bottom:0.5rem; display:inline-block;">1200–1700</div>
-        <h3 style="margin:0.5rem 0;">Akan Kingdoms</h3>
-        <p style="font-size:13px; margin:0.5rem 0;">Forest kingdoms</p>
-        <a href="akan-kingdoms.html">Learn More →</a>
-      </div>
-      <div class="related-card">
-        <div class="tag tag-colonial" style="margin-bottom:0.5rem; display:inline-block;">1471–1957</div>
-        <h3 style="margin:0.5rem 0;">Colonial Era</h3>
-        <p style="font-size:13px; margin:0.5rem 0;">European conquest</p>
-        <a href="colonial-era.html">Learn More →</a>
-      </div>
-      <div class="related-card">
-        <div class="tag tag-modern" style="margin-bottom:0.5rem; display:inline-block;">1957–Now</div>
-        <h3 style="margin:0.5rem 0;">Modern Republic</h3>
-        <p style="font-size:13px; margin:0.5rem 0;">Independence & democracy</p>
-        <a href="republic.html">Learn More →</a>
-      </div>
+    <h2 class="section-title" style="text-align: center; margin-bottom: 1rem;">Next Chapters in Ghana's History</h2>
+    <p class="section-text" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">Explore the continuation of Ghana's remarkable journey through the ages.</p>
+    <div class="related-grid">
+      <a href="ancient-empires.html" class="related-card">
+        <span class="tag">300–1076</span>
+        <h3>Ancient Empires</h3>
+        <p>Wagadou and the trans-Saharan trade</p>
+      </a>
+      <a href="akan-kingdoms.html" class="related-card">
+        <span class="tag">1200–1700</span>
+        <h3>Akan Kingdoms</h3>
+        <p>Sophisticated forest kingdoms</p>
+      </a>
+      <a href="colonial-era.html" class="related-card">
+        <span class="tag">1471–1957</span>
+        <h3>Colonial Era</h3>
+        <p>European presence and resistance</p>
+      </a>
+      <a href="republic.html" class="related-card">
+        <span class="tag">1957–Present</span>
+        <h3>Modern Ghana</h3>
+        <p>Independence and beyond</p>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
+<footer>
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <strong style="font-size:16px;">Ghana History</strong>
-        <p style="margin-top:0.5rem; font-size:14px; color:var(--muted);">A comprehensive digital archive celebrating Ghana's rich history, culture, heroes, and journey.</p>
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <div class="logo-text">Ghana<span>Our History &amp; Our Journey</span></div>
+        </div>
+        <p>A comprehensive digital archive celebrating Ghana's rich history, culture, heroes, and journey.</p>
       </div>
-      <div>
-        <span style="font-weight:600; display:block; margin-bottom:0.5rem;">History</span>
-        <a href="ancient-empires.html">Ancient Empires</a><a href="akan-kingdoms.html">Akan Kingdoms</a><a href="asante-empire.html">Asante Empire</a><a href="colonial-era.html">Colonial Era</a><a href="independence.html">Independence</a><a href="republic.html">The Republic</a>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="history.html">History</a>
+        <a href="culture.html">Culture</a><a href="heroes.html">Heroes</a>
+        <a href="gallery.html">Gallery</a><a href="journey.html">Our Journey</a>
       </div>
-      <div>
-        <span style="font-weight:600; display:block; margin-bottom:0.5rem;">Explore</span>
-        <a href="culture.html">Culture</a><a href="heroes.html">Heroes</a><a href="gallery.html">Gallery</a><a href="journey.html">Our Journey</a>
+      <div class="footer-col">
+        <h4>History</h4>
+        <a href="ancient-empires.html">Ancient Empires</a>
+        <a href="akan-kingdoms.html">Akan Kingdoms</a>
+        <a href="asante-empire.html">Asante Empire</a>
+        <a href="colonial-era.html">Colonial Era</a>
       </div>
-      <div>
-        <span style="font-weight:600; display:block; margin-bottom:0.5rem;">Connect</span>
-        <a href="#">Twitter</a><a href="#">Instagram</a><a href="#">Facebook</a>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Twitter / X</a><a href="#">Instagram</a>
+        <a href="#">YouTube</a><a href="#">Facebook</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Ghana: Our History &amp; Our Journey. All rights reserved.</p>
-      <div class="tricolour"><span style="background:var(--red);"></span><span style="background:var(--gold2);"></span><span style="background:var(--green);"></span></div>
+      <span>© 2025 Ghana: Our History &amp; Our Journey.</span>
+      <div class="tricolour">
+        <span style="background:var(--red);"></span><span style="background:var(--gold2);"></span><span style="background:var(--green);"></span>
+        <span style="margin-left:6px;">Freedom &amp; Justice</span>
+      </div>
     </div>
   </div>
 </footer>

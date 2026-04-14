@@ -3,20 +3,255 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Ancient Ghana Empire — Our History &amp; Our Journey</title>
+  <title>Ancient Ghana Empire — Our History & Our Journey</title>
   <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet"/>
   <style>
-    .related-sections {
-      display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem;
+    :root {
+      --gold: #FFD700;
+      --dark: #0d0d0d;
+      --dark2: #1a1a1a;
+      --text: #f5f5f5;
+      --text-muted: rgba(255,255,255,0.6);
+      --border: rgba(255,255,255,0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Source Sans 3', sans-serif;
+      line-height: 1.7;
+    }
+    .hero-modern {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: linear-gradient(135deg, rgba(13,13,13,0.95) 0%, rgba(26,26,26,0.9) 100%);
+      overflow: hidden;
+    }
+    .hero-modern::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('imgaes/empire.jpg') center/cover;
+      opacity: 0.3;
+    }
+    .hero-modern::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to bottom, rgba(13,13,13,0.7) 0%, transparent 50%, rgba(13,13,13,1) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 4rem 2rem;
+      margin-left: 15%;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 8px 20px;
+      border-radius: 30px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+    .section {
+      padding: 5rem 2rem;
+      background: var(--dark);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .grid-2.reverse { direction: rtl; }
+    .grid-2.reverse > * { direction: ltr; }
+    .img-wrapper {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .img-wrapper img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .img-wrapper:hover img { transform: scale(1.05); }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+    .section-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, rgba(255,215,0,0.05) 100%);
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .highlight-box strong {
+      color: var(--gold);
+      font-size: 14px;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .highlight-box p {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .quote-block {
+      background: var(--dark2);
+      padding: 4rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-style: italic;
+      color: #fff;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+    .quote-cite {
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
     }
     .related-card {
-      background: rgba(212,160,23,0.07); border: 1px solid var(--border);
-      border-radius: 8px; padding: 1.5rem; text-align: center;
+      background: var(--dark2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
       transition: all 0.3s;
+      cursor: pointer;
     }
-    .related-card:hover { background: rgba(212,160,23,0.12); transform: translateY(-4px); }
-    .related-card a { color: var(--gold); font-weight: 600; }
-    @media(max-width:768px){ .related-sections { grid-template-columns: repeat(2,1fr); } }
+    .related-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+      background: rgba(255,215,0,0.05);
+    }
+    .related-card .tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .related-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .related-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .related-card a {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    @media (max-width: 968px) {
+      .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
+      .grid-2.reverse { direction: ltr; }
+      .related-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .related-grid { grid-template-columns: 1fr; }
+      .hero-modern { min-height: 50vh; }
+    }
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 4rem;
+    }
+    .stat-cell {
+      background: var(--dark2);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
   </style>
 </head>
 <body>
@@ -24,7 +259,7 @@
 <nav>
   <a href="index.html" class="nav-logo">
     <div class="flag-bar"><span></span><span></span><span></span></div>
-    <div class="logo-text">Ghana<span>Our History &amp; Journey</span></div>
+    <div class="logo-text">Ghana<span>Our History &amp; Our Journey</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -65,108 +300,144 @@
   <a href="journey.html">Our Journey</a>
 </div>
 
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div class="bg" style="background-image: url('/imgaes/history.jpg');"></div>
-  <div class="container">
-    <div class="kente-rule"><span></span><span></span><span></span><span></span><span></span></div>
-    <span class="overline fade-in delay-1">300 – 1076 AD</span>
-    <h1 class="fade-up delay-2">The Ancient<br>Ghana Empire</h1>
-    <p class="sub fade-up delay-3">West Africa's first great empire, built on the crossroads of the trans-Saharan trade.</p>
+<!-- HERO -->
+<div class="hero-modern">
+  <div class="hero-content">
+    <div class="hero-tag">300 – 1076 AD</div>
+    <h1 class="hero-title">The Ancient<br>Ghana Empire</h1>
+    <p class="hero-subtitle">West Africa's first great empire, built on the crossroads of trans-Saharan trade. The legendary Wagadou that gave modern Ghana its name.</p>
   </div>
 </div>
 
 <!-- CONTENT -->
-<section class="era-section">
+<section class="section">
   <div class="container">
-    <div class="era-header">
+    
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-cell">
+        <div class="stat-value">~300</div>
+        <div class="stat-label">AD Origin</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-value">200K</div>
+        <div class="stat-label">Warriors</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-value">20K</div>
+        <div class="stat-label">Capital Population</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-value">1076</div>
+        <div class="stat-label">Capital Fell</div>
+      </div>
+    </div>
+
+    <!-- CONTENT 1 -->
+    <div class="grid-2">
+      <div class="img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Saharan_gold_trade_routes.jpg/1280px-Saharan_gold_trade_routes.jpg" alt="Ancient Ghana Empire"/>
+      </div>
       <div>
-        <div class="tag tag-empire" style="margin-bottom:1rem;">300 – 1076 AD</div>
-        <h2>The Ancient Ghana Empire</h2>
-      </div>
-      <p>Though geographically located in what is today Mali and Mauritania, the ancient Ghana Empire — known to its people as Wagadou — gave the modern nation its name and its spiritual heritage. It was West Africa's first great empire, built on the crossroads of the trans-Saharan trade.</p>
-    </div>
-
-    <div class="split">
-      <div class="split-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Saharan_gold_trade_routes.jpg/1280px-Saharan_gold_trade_routes.jpg" alt="Trans-Saharan trade routes"/>
-      </div>
-      <div class="split-text">
-        <span class="overline">The First Empire</span>
-        <h2>Wagadou: The Land of Gold</h2>
-        <p>The Ghana Empire — formally called Wagadou — arose around the 4th century AD from the Soninke people. Positioned at the intersection of gold-bearing forests to the south and salt mines of the Sahara to the north, Wagadou became extraordinarily wealthy by controlling and taxing the flow of these essential commodities.</p>
-        <p>The empire's capital, Koumbi Saleh, was one of the largest cities of the medieval world, reportedly home to 20,000 people at its height. Its king commanded an army of 200,000 men and maintained courts of dazzling opulence that astonished Arab travellers like Al-Bakri, who documented its splendour in 1068.</p>
-        <p>The empire's prosperity derived not from conquest alone but from statecraft — a sophisticated tax system, standardised weights and measures for gold dust, and a legal framework that governed trade disputes across thousands of miles.</p>
-        <div class="fact-box">
+        <span class="section-label">The First Empire</span>
+        <h2 class="section-title">Wagadou: Land of Gold</h2>
+        <p class="section-text">The Ghana Empire — formally called Wagadou — arose around the 4th century AD from the Soninke people. Positioned at the intersection of gold-bearing forests to the south and salt mines of the Sahara to the north, Wagadou became extraordinarily wealthy by controlling and taxing the flow of these essential commodities.</p>
+        <p class="section-text">The empire's capital, Koumbi Saleh, was one of the largest cities of the medieval world, reportedly home to 20,000 people at its height. Its king commanded an army of 200,000 men and maintained courts of dazzling opulence that astonished Arab travellers.</p>
+        <div class="highlight-box">
           <strong>Key Fact</strong>
-          <p>The king of ancient Ghana was so wealthy that his horses wore golden blankets and his dogs wore golden collars, according to Arab chronicler Al-Bakri writing in 1068 AD.</p>
+          <p>The king's horses wore golden blankets and his dogs wore golden collars, according to Arab chronicler Al-Bakri writing in 1068 AD.</p>
         </div>
-        <p>The empire's decline came gradually — Almoravid Berber pressure from the north beginning around 1050 AD disrupted trade routes and destabilised the political order. By 1076, the capital had fallen, though regional successors continued to govern until the 13th century.</p>
       </div>
     </div>
 
-    <div class="blockquote" style="margin-top:3rem;">
-      <p>"The king of Ghana can put two hundred thousand warriors in the field, more than forty thousand being armed with bow and arrow."</p>
-      <cite>— Al-Bakri, Arab geographer, writing c. 1068 AD</cite>
+    <!-- CONTENT 2 -->
+    <div class="grid-2 reverse" style="margin-top: 5rem;">
+      <div class="img-wrapper">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Cape_Coast_Castle_-_panoramio.jpg/1280px-Cape_Coast_Castle_-_panoramio.jpg" alt="Trans-Saharan Trade"/>
+      </div>
+      <div>
+        <span class="section-label">Trade & Power</span>
+        <h2 class="section-title">Masters of Commerce</h2>
+        <p class="section-text">The empire's prosperity derived not from conquest alone but from sophisticated statecraft — a standardised tax system, weights and measures for gold dust, and a legal framework that governed trade disputes across thousands of miles.</p>
+        <p class="section-text">Arab chroniclers described Ghana's king riding a horse adorned with gold, while his dogs wore golden collars. The monarch held absolute authority, with courts that dispensed justice to merchants from across the known world.</p>
+        <p class="section-text">The empire's decline came gradually — Almoravid Berber pressure from the north beginning around 1050 AD disrupted trade routes and destabilised the political order. By 1076, the capital had fallen, though regional successors continued until the 13th century.</p>
+      </div>
     </div>
 
-    <!-- RELATED SECTIONS -->
-    <div class="era-header" style="margin-top:4rem; margin-bottom:2rem;">
-      <h2>Next Chapters in Ghana's History</h2>
-    </div>
-    <div class="related-sections">
-      <div class="related-card">
-        <div class="tag tag-empire" style="margin-bottom:0.5rem; display:inline-block;">1200–1700</div>
-        <h3 style="margin:0.5rem 0;">Akan Kingdoms</h3>
-        <p style="font-size:13px; margin:0.5rem 0;">Sophisticated forest kingdoms</p>
-        <a href="akan-kingdoms.html">Learn More →</a>
-      </div>
-      <div class="related-card">
-        <div class="tag tag-empire" style="margin-bottom:0.5rem; display:inline-block;">1701–1902</div>
-        <h3 style="margin:0.5rem 0;">Asante Empire</h3>
-        <p style="font-size:13px; margin:0.5rem 0;">Africa's mightiest power</p>
-        <a href="asante-empire.html">Learn More →</a>
-      </div>
-      <div class="related-card">
-        <div class="tag tag-colonial" style="margin-bottom:0.5rem; display:inline-block;">1471–1957</div>
-        <h3 style="margin:0.5rem 0;">Colonial Era</h3>
-        <p style="font-size:13px; margin:0.5rem 0;">European presence & resistance</p>
-        <a href="colonial-era.html">Learn More →</a>
-      </div>
-      <div class="related-card">
-        <div class="tag tag-modern" style="margin-bottom:0.5rem; display:inline-block;">1957–Present</div>
-        <h3 style="margin:0.5rem 0;">Modern Ghana</h3>
-        <p style="font-size:13px; margin:0.5rem 0;">Independence & beyond</p>
-        <a href="republic.html">Learn More →</a>
-      </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-block">
+  <p class="quote-text">"The king of Ghana can put two hundred thousand warriors in the field, more than forty thousand being armed with bow and arrow."</p>
+  <cite class="quote-cite">— Al-Bakri, Arab geographer, c. 1068 AD</cite>
+</div>
+
+<!-- RELATED -->
+<section class="section" style="background: var(--dark2);">
+  <div class="container">
+    <h2 class="section-title" style="text-align: center; margin-bottom: 1rem;">Next Chapters in Ghana's History</h2>
+    <p class="section-text" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">Explore the continuation of Ghana's remarkable journey through the ages.</p>
+    <div class="related-grid">
+      <a href="akan-kingdoms.html" class="related-card">
+        <span class="tag">1200–1700</span>
+        <h3>Akan Kingdoms</h3>
+        <p>Sophisticated forest kingdoms and the rise of the Asante</p>
+      </a>
+      <a href="asante-empire.html" class="related-card">
+        <span class="tag">1701–1902</span>
+        <h3>Asante Empire</h3>
+        <p>Africa's mightiest power and the golden stool</p>
+      </a>
+      <a href="colonial-era.html" class="related-card">
+        <span class="tag">1471–1957</span>
+        <h3>Colonial Era</h3>
+        <p>European presence and the fight for freedom</p>
+      </a>
+      <a href="republic.html" class="related-card">
+        <span class="tag">1957–Present</span>
+        <h3>Modern Ghana</h3>
+        <p>Independence and the nation's journey forward</p>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
+<footer>
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <strong style="font-size:16px;">Ghana History</strong>
-        <p style="margin-top:0.5rem; font-size:14px; color:var(--muted);">A comprehensive digital archive celebrating Ghana's rich history, culture, heroes, and journey.</p>
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="flag-bar"><span></span><span></span><span></span></div>
+          <div class="logo-text">Ghana<span>Our History &amp; Our Journey</span></div>
+        </div>
+        <p>A comprehensive digital archive celebrating Ghana's rich history, culture, heroes, and journey.</p>
       </div>
-      <div>
-        <span style="font-weight:600; display:block; margin-bottom:0.5rem;">History</span>
-        <a href="ancient-empires.html">Ancient Empires</a><a href="akan-kingdoms.html">Akan Kingdoms</a><a href="asante-empire.html">Asante Empire</a><a href="colonial-era.html">Colonial Era</a><a href="independence.html">Independence</a><a href="republic.html">The Republic</a>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <a href="index.html">Home</a><a href="history.html">History</a>
+        <a href="culture.html">Culture</a><a href="heroes.html">Heroes</a>
+        <a href="gallery.html">Gallery</a><a href="journey.html">Our Journey</a>
       </div>
-      <div>
-        <span style="font-weight:600; display:block; margin-bottom:0.5rem;">Explore</span>
-        <a href="culture.html">Culture</a><a href="heroes.html">Heroes</a><a href="gallery.html">Gallery</a><a href="journey.html">Our Journey</a>
+      <div class="footer-col">
+        <h4>History</h4>
+        <a href="ancient-empires.html">Ancient Empires</a>
+        <a href="akan-kingdoms.html">Akan Kingdoms</a>
+        <a href="asante-empire.html">Asante Empire</a>
+        <a href="colonial-era.html">Colonial Era</a>
       </div>
-      <div>
-        <span style="font-weight:600; display:block; margin-bottom:0.5rem;">Connect</span>
-        <a href="#">Twitter</a><a href="#">Instagram</a><a href="#">Facebook</a>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="#">Twitter / X</a><a href="#">Instagram</a>
+        <a href="#">YouTube</a><a href="#">Facebook</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Ghana: Our History &amp; Our Journey. All rights reserved.</p>
-      <div class="tricolour"><span style="background:var(--red);"></span><span style="background:var(--gold2);"></span><span style="background:var(--green);"></span></div>
+      <span>© 2025 Ghana: Our History &amp; Our Journey.</span>
+      <div class="tricolour">
+        <span style="background:var(--red);"></span><span style="background:var(--gold2);"></span><span style="background:var(--green);"></span>
+        <span style="margin-left:6px;">Freedom &amp; Justice</span>
+      </div>
     </div>
   </div>
 </footer>
